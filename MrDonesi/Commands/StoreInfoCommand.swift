@@ -1,13 +1,13 @@
 //
-//  RestrauntsCommand.swift
+//  StoreInfoCommand.swift
 //  MrDonesi
 //
-//  Created by Maxim Subbotin on 13.06.2022.
+//  Created by Maxim Subbotin on 14.06.2022.
 //
 
 import Foundation
 
-public class RestrauntGroupsCommand: Command<[RestrauntGroup], ServerError> {
+public class StoreInfoCommand: Command<Store, ServerError> {
     public var latitude: Double {
         get {
             return 0
@@ -24,8 +24,16 @@ public class RestrauntGroupsCommand: Command<[RestrauntGroup], ServerError> {
             self.urlParametes.append(.double(param: newValue, name: "lng"))
         }
     }
+    public var storeId: Int {
+        get {
+            return 0
+        }
+        set {
+            self.pathComponents.append("\(newValue)")
+        }
+    }
     
     public init() {
-        super.init(apiUrl: "https://api.mrdonesi.com/api/public", path: "store/explore-v2")
+        super.init(apiUrl: "https://api.mrdonesi.com/api/public", path: "store")
     }
 }

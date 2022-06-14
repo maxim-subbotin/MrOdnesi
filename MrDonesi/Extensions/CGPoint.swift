@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension CGPoint {
+public extension CGPoint {
     init?(coordinateString s: String) {
         let parts = s.components(separatedBy: ",")
         if parts.count != 2 {

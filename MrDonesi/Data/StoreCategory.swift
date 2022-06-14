@@ -1,5 +1,5 @@
 //
-//  RestrauntCategory.swift
+//  StoreCategory.swift
 //  MrDonesi
 //
 //  Created by Maxim Subbotin on 13.06.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RestrauntCategory: Codable {
+struct StoreCategory: Codable {
     var id: Int
     var name: String
     var imageUrl: String?

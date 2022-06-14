@@ -8,13 +8,13 @@
 import Foundation
 
 protocol StoresProvider {
-    func fetchStores(callback: @escaping (Result<[RestrauntGroup], Error>) -> ())
-    func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Restraunt, Error>) -> ())
+    func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ())
+    func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ())
 }
 
 class WebStoresProvider: StoresProvider {
-    func fetchStores(callback: @escaping (Result<[RestrauntGroup], Error>) -> ()) {
-        let command = RestrauntGroupsCommand()
+    func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ()) {
+        let command = StoreGroupsCommand()
         command.fetchData(callback: { res in
             switch res {
             case .success(let stores):
@@ -25,8 +25,8 @@ class WebStoresProvider: StoresProvider {
         })
     }
     
-    func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Restraunt, Error>) -> ()) {
-        let command = RestrauntInfoCommand()
+    func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ()) {
+        let command = StoreInfoCommand()
         command.storeId = storeId
         command.fetchData(callback: { res in
             switch res {
@@ -40,11 +40,11 @@ class WebStoresProvider: StoresProvider {
 }
 
 class LocalStoresProvider: StoresProvider {
-    func fetchStores(callback: @escaping (Result<[RestrauntGroup], Error>) -> ()) {
+    func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ()) {
         assertionFailure("Not implemented")
     }
     
-    func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Restraunt, Error>) -> ()) {
+    func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ()) {
         assertionFailure("Not implemented")
     }
     

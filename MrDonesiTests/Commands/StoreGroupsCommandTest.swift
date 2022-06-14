@@ -1,5 +1,5 @@
 //
-//  RestrauntGroupsCommand.swift
+//  StoreGroupsCommand.swift
 //  MrDonesiTests
 //
 //  Created by Maxim Subbotin on 13.06.2022.
@@ -9,8 +9,8 @@ import Foundation
 import XCTest
 import MrDonesi
 
-class RestrauntGroupsCommandTest: XCTestCase {
-    var command = RestrauntGroupsCommand()
+class StoreGroupsCommandTest: XCTestCase {
+    var command = StoreGroupsCommand()
     
     override func setUpWithError() throws {
         

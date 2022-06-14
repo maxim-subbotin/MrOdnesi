@@ -1,5 +1,5 @@
 //
-//  Restraunt.swift
+//  Store.swift
 //  MrDonesi
 //
 //  Created by Maxim Subbotin on 13.06.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Restraunt: Codable {
+public struct Store: Codable {
     var id: Int
     var name: String
     var description: String
@@ -17,7 +17,7 @@ public struct Restraunt: Codable {
     var city: String
     var location: String
     var phone: String?
-    var categories: [RestrauntCategory]
+    var categories: [StoreCategory]
     var type: String // TODO: make enum
     var imageUrl: String?
     var rating: Double
