@@ -9,7 +9,7 @@ import Foundation
 
 // Food or Dish?
 struct StoreGroupItem: Codable {
-    var id: Int
+    var id: Int?
     var name: String
     var description: String?
     var options: [String: StoreItemOption]
@@ -18,8 +18,8 @@ struct StoreGroupItem: Codable {
     var groupId: Int
     var active: Bool
     var priority: Int?
-    var displayPrice: Int
-    var displayDiscount: Int?
+    var displayPrice: Double
+    var displayDiscount: Double?
     var hidden: Bool
     var alcohol: Bool
     var large: Bool

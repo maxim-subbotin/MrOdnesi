@@ -10,9 +10,9 @@ import Foundation
 struct StoreItemOption: Codable {
     var description: String?
     var active: Bool
-    var price: Int
+    var price: Double
     var priority: Int?
-    var discount: Int?
-    var discountPlatformShare: String?
+    var discount: Double?
+    var discountPlatformShare: Int?
     //var addons: // what's type?
 }
