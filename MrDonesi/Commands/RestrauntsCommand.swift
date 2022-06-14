@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RestrauntGroupsCommand: Command<[RestrauntGroup]> {
+public class RestrauntGroupsCommand: Command<[RestrauntGroup], ServerError> {
     public var latitude: Double {
         get {
             return 0

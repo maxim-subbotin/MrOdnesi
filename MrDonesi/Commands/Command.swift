@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-public class Command<T: Codable> {
-    public typealias Callback = (Result<T, Error>) -> ()
+public class Command<DataType: Codable, ErrorType: Codable> {
+    public typealias Callback = (Result<DataType, Error>) -> ()
     enum Parameter {
         case int(param: Int, name: String)
         case string(param: String, name: String)
@@ -28,7 +28,10 @@ public class Command<T: Codable> {
     }
     public enum CommandError: Error {
         case incorrectUrlFormat(string: String)
-        case serverError(_ error: Error)
+        case serverError(_ error: ErrorType)
+        case errorStatus(_ status: Int)
+        case processingError(_ error: Error)
+        case wrongResponse
     }
     
     private(set) var apiUrl: String
@@ -64,10 +67,29 @@ public class Command<T: Codable> {
         // TODO: add support of POST, DELETE, PATCH etc methods
         URLSession.shared
             .dataTaskPublisher(for: requestUrl)
-            .map({ $0.data })
-            .decode(type: T.self, decoder: JSONDecoder())
-            .mapError({ error in
-                CommandError.serverError(error)
+            .tryMap({ data, response in
+                guard let status = (response as? HTTPURLResponse)?.statusCode else {
+                    throw CommandError.wrongResponse
+                }
+                switch status {
+                case (200...299):
+                    return data
+                default:
+                    if let error = try? JSONDecoder().decode(ErrorType.self, from: data) {
+                        throw CommandError.serverError(error)
+                    }
+                    throw CommandError.errorStatus(status)
+                }
+            })
+            //.map({ $0.data })
+            .decode(type: DataType.self, decoder: JSONDecoder())
+            .mapError({ error -> CommandError in
+                switch error {
+                case is CommandError:
+                    return error as! Command<DataType, ErrorType>.CommandError
+                default:
+                    return CommandError.processingError(error)
+                }
             })
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()

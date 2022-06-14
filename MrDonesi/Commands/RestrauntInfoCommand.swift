@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RestrauntInfoCommand: Command<Restraunt> {
+public class RestrauntInfoCommand: Command<Restraunt, ServerError> {
     public var latitude: Double {
         get {
             return 0
