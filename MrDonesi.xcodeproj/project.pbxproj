@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D602858C1CF00D25366 /* StoresProvider.swift */; };
+		E5705D632858C7D000D25366 /* DeliveryZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D622858C7D000D25366 /* DeliveryZone.swift */; };
+		E5705D652858C80900D25366 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D642858C80900D25366 /* Polygon.swift */; };
+		E5705D682858C9F400D25366 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D672858C9F400D25366 /* CGPoint.swift */; };
 		E587F0422858880900656C48 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587F0412858880900656C48 /* ServerError.swift */; };
 		E5B6365A2857DB7500CFD3E0 /* RestrauntGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636592857DB7500CFD3E0 /* RestrauntGroup.swift */; };
 		E5B6365C2857DBDD00CFD3E0 /* Restraunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6365B2857DBDD00CFD3E0 /* Restraunt.swift */; };
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5705D602858C1CF00D25366 /* StoresProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresProvider.swift; sourceTree = "<group>"; };
+		E5705D622858C7D000D25366 /* DeliveryZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryZone.swift; sourceTree = "<group>"; };
+		E5705D642858C80900D25366 /* Polygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
+		E5705D672858C9F400D25366 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		E587F0412858880900656C48 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		E5B636592857DB7500CFD3E0 /* RestrauntGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntGroup.swift; sourceTree = "<group>"; };
 		E5B6365B2857DBDD00CFD3E0 /* Restraunt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restraunt.swift; sourceTree = "<group>"; };
@@ -89,6 +97,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5705D5F2858C1BB00D25366 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				E5705D602858C1CF00D25366 /* StoresProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		E5705D662858C9E400D25366 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5705D672858C9F400D25366 /* CGPoint.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E5B636582857DB5700CFD3E0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +125,8 @@
 				E5B6367B2857F1A900CFD3E0 /* StoreGroup.swift */,
 				E5B6367E2857F21200CFD3E0 /* StoreGroupItem.swift */,
 				E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */,
+				E5705D622858C7D000D25366 /* DeliveryZone.swift */,
+				E5705D642858C80900D25366 /* Polygon.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -155,6 +181,7 @@
 		E5F35E062857D97400290E31 /* MrDonesi */ = {
 			isa = PBXGroup;
 			children = (
+				E5705D662858C9E400D25366 /* Extensions */,
 				E5B636642857E16700CFD3E0 /* Commands */,
 				E5B636582857DB5700CFD3E0 /* Data */,
 				E5F35E1C2857D9E900290E31 /* Model */,
@@ -181,6 +208,7 @@
 		E5F35E1C2857D9E900290E31 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E5705D5F2858C1BB00D25366 /* Providers */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,17 +327,21 @@
 				E5B636612857E04300CFD3E0 /* RestrauntCategory.swift in Sources */,
 				E5B6365F2857DD8F00CFD3E0 /* WorkingHours.swift in Sources */,
 				E5B636812857F2AF00CFD3E0 /* StoreItemOption.swift in Sources */,
+				E5705D632858C7D000D25366 /* DeliveryZone.swift in Sources */,
 				E5B6365C2857DBDD00CFD3E0 /* Restraunt.swift in Sources */,
 				E5B636662857E17600CFD3E0 /* Command.swift in Sources */,
 				E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */,
 				E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */,
 				E5B6365A2857DB7500CFD3E0 /* RestrauntGroup.swift in Sources */,
 				E5B636832857F3CB00CFD3E0 /* RestrauntInfoCommand.swift in Sources */,
+				E5705D682858C9F400D25366 /* CGPoint.swift in Sources */,
 				E587F0422858880900656C48 /* ServerError.swift in Sources */,
 				E5B6367C2857F1A900CFD3E0 /* StoreGroup.swift in Sources */,
 				E5B636762857E7C900CFD3E0 /* RestrauntsCommand.swift in Sources */,
 				E5B636632857E0EA00CFD3E0 /* RestaurantGroupLayout.swift in Sources */,
 				E5B6367A2857EFFA00CFD3E0 /* RestrauntFullInfo.swift in Sources */,
+				E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */,
+				E5705D652858C80900D25366 /* Polygon.swift in Sources */,
 				E5F35E0A2857D97400290E31 /* SceneDelegate.swift in Sources */,
 				E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */,
 				E5F35E1E2857D9FD00290E31 /* RestrauntsViewController.swift in Sources */,

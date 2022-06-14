@@ -45,4 +45,5 @@ public struct Restraunt: Codable {
     var coveringFreeDelivery: Bool
     var favorite: Bool
     var groups: [StoreGroup]?
+    var deliveryZone: [DeliveryZone]?
 }
