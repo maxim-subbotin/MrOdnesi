@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5B6365A2857DB7500CFD3E0 /* RestrauntGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636592857DB7500CFD3E0 /* RestrauntGroup.swift */; };
+		E5B6365C2857DBDD00CFD3E0 /* Restraunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6365B2857DBDD00CFD3E0 /* Restraunt.swift */; };
+		E5B6365F2857DD8F00CFD3E0 /* WorkingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6365E2857DD8F00CFD3E0 /* WorkingHours.swift */; };
+		E5B636612857E04300CFD3E0 /* RestrauntCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636602857E04300CFD3E0 /* RestrauntCategory.swift */; };
+		E5B636632857E0EA00CFD3E0 /* RestaurantGroupLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636622857E0EA00CFD3E0 /* RestaurantGroupLayout.swift */; };
+		E5B636662857E17600CFD3E0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636652857E17600CFD3E0 /* Command.swift */; };
+		E5B6366E2857E79800CFD3E0 /* MrDonesiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6366D2857E79800CFD3E0 /* MrDonesiTests.swift */; };
+		E5B636762857E7C900CFD3E0 /* RestrauntsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636752857E7C900CFD3E0 /* RestrauntsCommand.swift */; };
+		E5B636782857E8CD00CFD3E0 /* RestrauntGroupsCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636772857E8CD00CFD3E0 /* RestrauntGroupsCommandTest.swift */; };
+		E5B6367A2857EFFA00CFD3E0 /* RestrauntFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636792857EFFA00CFD3E0 /* RestrauntFullInfo.swift */; };
+		E5B6367C2857F1A900CFD3E0 /* StoreGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6367B2857F1A900CFD3E0 /* StoreGroup.swift */; };
+		E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6367E2857F21200CFD3E0 /* StoreGroupItem.swift */; };
+		E5B636812857F2AF00CFD3E0 /* StoreItemOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */; };
+		E5B636832857F3CB00CFD3E0 /* RestrauntInfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636822857F3CB00CFD3E0 /* RestrauntInfoCommand.swift */; };
+		E5B636852857F54D00CFD3E0 /* RestrauntInfoCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636842857F54D00CFD3E0 /* RestrauntInfoCommandTest.swift */; };
+		E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E072857D97400290E31 /* AppDelegate.swift */; };
+		E5F35E0A2857D97400290E31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E092857D97400290E31 /* SceneDelegate.swift */; };
+		E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E0B2857D97400290E31 /* ViewController.swift */; };
+		E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E0D2857D97400290E31 /* Main.storyboard */; };
+		E5F35E112857D97800290E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E102857D97800290E31 /* Assets.xcassets */; };
+		E5F35E142857D97800290E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E122857D97800290E31 /* LaunchScreen.storyboard */; };
+		E5F35E1E2857D9FD00290E31 /* RestrauntsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E1D2857D9FD00290E31 /* RestrauntsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5B6366F2857E79800CFD3E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5F35DFC2857D97400290E31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5F35E032857D97400290E31;
+			remoteInfo = MrDonesi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5B636592857DB7500CFD3E0 /* RestrauntGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntGroup.swift; sourceTree = "<group>"; };
+		E5B6365B2857DBDD00CFD3E0 /* Restraunt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restraunt.swift; sourceTree = "<group>"; };
+		E5B6365E2857DD8F00CFD3E0 /* WorkingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHours.swift; sourceTree = "<group>"; };
+		E5B636602857E04300CFD3E0 /* RestrauntCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntCategory.swift; sourceTree = "<group>"; };
+		E5B636622857E0EA00CFD3E0 /* RestaurantGroupLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantGroupLayout.swift; sourceTree = "<group>"; };
+		E5B636652857E17600CFD3E0 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		E5B6366B2857E79800CFD3E0 /* MrDonesiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MrDonesiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B6366D2857E79800CFD3E0 /* MrDonesiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrDonesiTests.swift; sourceTree = "<group>"; };
+		E5B636752857E7C900CFD3E0 /* RestrauntsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntsCommand.swift; sourceTree = "<group>"; };
+		E5B636772857E8CD00CFD3E0 /* RestrauntGroupsCommandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntGroupsCommandTest.swift; sourceTree = "<group>"; };
+		E5B636792857EFFA00CFD3E0 /* RestrauntFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntFullInfo.swift; sourceTree = "<group>"; };
+		E5B6367B2857F1A900CFD3E0 /* StoreGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGroup.swift; sourceTree = "<group>"; };
+		E5B6367E2857F21200CFD3E0 /* StoreGroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGroupItem.swift; sourceTree = "<group>"; };
+		E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemOption.swift; sourceTree = "<group>"; };
+		E5B636822857F3CB00CFD3E0 /* RestrauntInfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntInfoCommand.swift; sourceTree = "<group>"; };
+		E5B636842857F54D00CFD3E0 /* RestrauntInfoCommandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntInfoCommandTest.swift; sourceTree = "<group>"; };
+		E5F35E042857D97400290E31 /* MrDonesi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDonesi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5F35E072857D97400290E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E5F35E092857D97400290E31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E5F35E0B2857D97400290E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5F35E0E2857D97400290E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5F35E102857D97800290E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5F35E132857D97800290E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5F35E152857D97800290E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5F35E1D2857D9FD00290E31 /* RestrauntsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5B636682857E79800CFD3E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5F35E012857D97400290E31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5B636582857DB5700CFD3E0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E5B636592857DB7500CFD3E0 /* RestrauntGroup.swift */,
+				E5B6365B2857DBDD00CFD3E0 /* Restraunt.swift */,
+				E5B6365E2857DD8F00CFD3E0 /* WorkingHours.swift */,
+				E5B636602857E04300CFD3E0 /* RestrauntCategory.swift */,
+				E5B636622857E0EA00CFD3E0 /* RestaurantGroupLayout.swift */,
+				E5B636792857EFFA00CFD3E0 /* RestrauntFullInfo.swift */,
+				E5B6367B2857F1A900CFD3E0 /* StoreGroup.swift */,
+				E5B6367E2857F21200CFD3E0 /* StoreGroupItem.swift */,
+				E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E5B636642857E16700CFD3E0 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				E5B636652857E17600CFD3E0 /* Command.swift */,
+				E5B636752857E7C900CFD3E0 /* RestrauntsCommand.swift */,
+				E5B636822857F3CB00CFD3E0 /* RestrauntInfoCommand.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		E5B6366C2857E79800CFD3E0 /* MrDonesiTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5B636742857E7A000CFD3E0 /* Commands */,
+				E5B6366D2857E79800CFD3E0 /* MrDonesiTests.swift */,
+			);
+			path = MrDonesiTests;
+			sourceTree = "<group>";
+		};
+		E5B636742857E7A000CFD3E0 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				E5B636772857E8CD00CFD3E0 /* RestrauntGroupsCommandTest.swift */,
+				E5B636842857F54D00CFD3E0 /* RestrauntInfoCommandTest.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		E5F35DFB2857D97400290E31 = {
+			isa = PBXGroup;
+			children = (
+				E5F35E062857D97400290E31 /* MrDonesi */,
+				E5B6366C2857E79800CFD3E0 /* MrDonesiTests */,
+				E5F35E052857D97400290E31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5F35E052857D97400290E31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5F35E042857D97400290E31 /* MrDonesi.app */,
+				E5B6366B2857E79800CFD3E0 /* MrDonesiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5F35E062857D97400290E31 /* MrDonesi */ = {
+			isa = PBXGroup;
+			children = (
+				E5B636642857E16700CFD3E0 /* Commands */,
+				E5B636582857DB5700CFD3E0 /* Data */,
+				E5F35E1C2857D9E900290E31 /* Model */,
+				E5F35E1B2857D9E200290E31 /* Views */,
+				E5F35E072857D97400290E31 /* AppDelegate.swift */,
+				E5F35E092857D97400290E31 /* SceneDelegate.swift */,
+				E5F35E0B2857D97400290E31 /* ViewController.swift */,
+				E5F35E0D2857D97400290E31 /* Main.storyboard */,
+				E5F35E102857D97800290E31 /* Assets.xcassets */,
+				E5F35E122857D97800290E31 /* LaunchScreen.storyboard */,
+				E5F35E152857D97800290E31 /* Info.plist */,
+			);
+			path = MrDonesi;
+			sourceTree = "<group>";
+		};
+		E5F35E1B2857D9E200290E31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5F35E1D2857D9FD00290E31 /* RestrauntsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5F35E1C2857D9E900290E31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5B6366A2857E79800CFD3E0 /* MrDonesiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5B636712857E79800CFD3E0 /* Build configuration list for PBXNativeTarget "MrDonesiTests" */;
+			buildPhases = (
+				E5B636672857E79800CFD3E0 /* Sources */,
+				E5B636682857E79800CFD3E0 /* Frameworks */,
+				E5B636692857E79800CFD3E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5B636702857E79800CFD3E0 /* PBXTargetDependency */,
+			);
+			name = MrDonesiTests;
+			productName = MrDonesiTests;
+			productReference = E5B6366B2857E79800CFD3E0 /* MrDonesiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5F35E032857D97400290E31 /* MrDonesi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5F35E182857D97800290E31 /* Build configuration list for PBXNativeTarget "MrDonesi" */;
+			buildPhases = (
+				E5F35E002857D97400290E31 /* Sources */,
+				E5F35E012857D97400290E31 /* Frameworks */,
+				E5F35E022857D97400290E31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MrDonesi;
+			productName = MrDonesi;
+			productReference = E5F35E042857D97400290E31 /* MrDonesi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5F35DFC2857D97400290E31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					E5B6366A2857E79800CFD3E0 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = E5F35E032857D97400290E31;
+					};
+					E5F35E032857D97400290E31 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = E5F35DFF2857D97400290E31 /* Build configuration list for PBXProject "MrDonesi" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5F35DFB2857D97400290E31;
+			productRefGroup = E5F35E052857D97400290E31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5F35E032857D97400290E31 /* MrDonesi */,
+				E5B6366A2857E79800CFD3E0 /* MrDonesiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5B636692857E79800CFD3E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5F35E022857D97400290E31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5F35E142857D97800290E31 /* LaunchScreen.storyboard in Resources */,
+				E5F35E112857D97800290E31 /* Assets.xcassets in Resources */,
+				E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5B636672857E79800CFD3E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B636782857E8CD00CFD3E0 /* RestrauntGroupsCommandTest.swift in Sources */,
+				E5B6366E2857E79800CFD3E0 /* MrDonesiTests.swift in Sources */,
+				E5B636852857F54D00CFD3E0 /* RestrauntInfoCommandTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5F35E002857D97400290E31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B636612857E04300CFD3E0 /* RestrauntCategory.swift in Sources */,
+				E5B6365F2857DD8F00CFD3E0 /* WorkingHours.swift in Sources */,
+				E5B636812857F2AF00CFD3E0 /* StoreItemOption.swift in Sources */,
+				E5B6365C2857DBDD00CFD3E0 /* Restraunt.swift in Sources */,
+				E5B636662857E17600CFD3E0 /* Command.swift in Sources */,
+				E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */,
+				E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */,
+				E5B6365A2857DB7500CFD3E0 /* RestrauntGroup.swift in Sources */,
+				E5B636832857F3CB00CFD3E0 /* RestrauntInfoCommand.swift in Sources */,
+				E5B6367C2857F1A900CFD3E0 /* StoreGroup.swift in Sources */,
+				E5B636762857E7C900CFD3E0 /* RestrauntsCommand.swift in Sources */,
+				E5B636632857E0EA00CFD3E0 /* RestaurantGroupLayout.swift in Sources */,
+				E5B6367A2857EFFA00CFD3E0 /* RestrauntFullInfo.swift in Sources */,
+				E5F35E0A2857D97400290E31 /* SceneDelegate.swift in Sources */,
+				E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */,
+				E5F35E1E2857D9FD00290E31 /* RestrauntsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5B636702857E79800CFD3E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5F35E032857D97400290E31 /* MrDonesi */;
+			targetProxy = E5B6366F2857E79800CFD3E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5F35E0D2857D97400290E31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5F35E0E2857D97400290E31 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E5F35E122857D97800290E31 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5F35E132857D97800290E31 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5B636722857E79800CFD3E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4QVDV2N2SB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximsubbotin.MrDonesiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MrDonesi.app/MrDonesi";
+			};
+			name = Debug;
+		};
+		E5B636732857E79800CFD3E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4QVDV2N2SB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximsubbotin.MrDonesiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MrDonesi.app/MrDonesi";
+			};
+			name = Release;
+		};
+		E5F35E162857D97800290E31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E5F35E172857D97800290E31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5F35E192857D97800290E31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4QVDV2N2SB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MrDonesi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximsubbotin.MrDonesi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5F35E1A2857D97800290E31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4QVDV2N2SB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MrDonesi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximsubbotin.MrDonesi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5B636712857E79800CFD3E0 /* Build configuration list for PBXNativeTarget "MrDonesiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5B636722857E79800CFD3E0 /* Debug */,
+				E5B636732857E79800CFD3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5F35DFF2857D97400290E31 /* Build configuration list for PBXProject "MrDonesi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5F35E162857D97800290E31 /* Debug */,
+				E5F35E172857D97800290E31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5F35E182857D97800290E31 /* Build configuration list for PBXNativeTarget "MrDonesi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5F35E192857D97800290E31 /* Debug */,
+				E5F35E1A2857D97800290E31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5F35DFC2857D97400290E31 /* Project object */;
+}
