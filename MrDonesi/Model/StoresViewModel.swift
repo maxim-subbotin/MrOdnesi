@@ -23,6 +23,8 @@ protocol StoresViewModel {
     func loadData()
     func group(forName name: String) -> StoreSet?
     func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ())
+    func storeName(group name: String, index: Int) -> String?
+    func storeCategories(group name: String, index: Int) -> [String]?
 }
 
 class MyStoresViewModel: ObservableObject, StoresViewModel {
@@ -57,6 +59,26 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     
     func group(forName name: String) -> StoreSet? {
         return groups.filter({ $0.name == name }).first
+    }
+    
+    func storeName(group name: String, index: Int) -> String? {
+        guard let group = group(forName: name) else {
+            return nil
+        }
+        if index >= group.stores.count {
+            return nil
+        }
+        return group.stores[index].name
+    }
+    
+    func storeCategories(group name: String, index: Int) -> [String]? {
+        guard let group = group(forName: name) else {
+            return nil
+        }
+        if index >= group.stores.count {
+            return nil
+        }
+        return group.stores[index].categories.map({ $0.name })
     }
     
     func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ()) {

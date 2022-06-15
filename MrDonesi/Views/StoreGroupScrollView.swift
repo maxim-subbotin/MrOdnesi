@@ -11,7 +11,7 @@ import UIKit
 class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
     enum CellType: String {
-    case store
+        case store
     }
     
     private var viewModel: StoresViewModel
