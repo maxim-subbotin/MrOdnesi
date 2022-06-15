@@ -43,6 +43,7 @@
 		E5ECE7F42859F01400B5ABE0 /* StoresListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F32859F01400B5ABE0 /* StoresListHeaderView.swift */; };
 		E5ECE7F62859F32600B5ABE0 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */; };
 		E5ECE7F82859F5CC00B5ABE0 /* FileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */; };
+		E5ECE7FA285A1E2800B5ABE0 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F9285A1E2800B5ABE0 /* UIImage.swift */; };
 		E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E072857D97400290E31 /* AppDelegate.swift */; };
 		E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E0B2857D97400290E31 /* ViewController.swift */; };
 		E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E0D2857D97400290E31 /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		E5ECE7F32859F01400B5ABE0 /* StoresListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresListHeaderView.swift; sourceTree = "<group>"; };
 		E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProvider.swift; sourceTree = "<group>"; };
+		E5ECE7F9285A1E2800B5ABE0 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		E5F35E042857D97400290E31 /* MrDonesi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDonesi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F35E072857D97400290E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F35E0B2857D97400290E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				E5ECE7E72859E30700B5ABE0 /* UIColor.swift */,
 				E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */,
 				E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */,
+				E5ECE7F9285A1E2800B5ABE0 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				E5B636662857E17600CFD3E0 /* Command.swift in Sources */,
 				E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */,
 				E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */,
+				E5ECE7FA285A1E2800B5ABE0 /* UIImage.swift in Sources */,
 				E5B6365A2857DB7500CFD3E0 /* StoreSet.swift in Sources */,
 				E5705D6D2858D4EF00D25366 /* StoresSegmentView.swift in Sources */,
 				E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */,

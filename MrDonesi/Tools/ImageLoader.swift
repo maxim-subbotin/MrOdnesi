@@ -24,7 +24,7 @@ class ImageLoader {
         
         // TODO: make cached images available after app relaunching
         // TODO: save image icons (300x300) to optimize gallery cells
-        if let cachedImage = fileProvider.getFromCache(forUrl: url) {
+        if let cachedImage = fileProvider.getFromCache(forUrl: url, allowIcon: true) {
             callback(.success(cachedImage))
             return uuid
         }
