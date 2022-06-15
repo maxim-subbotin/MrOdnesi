@@ -42,6 +42,7 @@
 		E5ECE7F22859E55E00B5ABE0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */; };
 		E5ECE7F42859F01400B5ABE0 /* StoresListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F32859F01400B5ABE0 /* StoresListHeaderView.swift */; };
 		E5ECE7F62859F32600B5ABE0 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */; };
+		E5ECE7F82859F5CC00B5ABE0 /* FileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */; };
 		E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E072857D97400290E31 /* AppDelegate.swift */; };
 		E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E0B2857D97400290E31 /* ViewController.swift */; };
 		E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E0D2857D97400290E31 /* Main.storyboard */; };
@@ -97,6 +98,7 @@
 		E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E5ECE7F32859F01400B5ABE0 /* StoresListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresListHeaderView.swift; sourceTree = "<group>"; };
 		E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProvider.swift; sourceTree = "<group>"; };
 		E5F35E042857D97400290E31 /* MrDonesi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDonesi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F35E072857D97400290E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F35E0B2857D97400290E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				E5705D602858C1CF00D25366 /* StoresProvider.swift */,
 				E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */,
+				E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				E5ECE7F42859F01400B5ABE0 /* StoresListHeaderView.swift in Sources */,
 				E5ECE7F62859F32600B5ABE0 /* UIDevice.swift in Sources */,
 				E59ADC5F28593264006C87EC /* StoreGroupCellView.swift in Sources */,
+				E5ECE7F82859F5CC00B5ABE0 /* FileProvider.swift in Sources */,
 				E5ECE7E42859DAE700B5ABE0 /* TagsView.swift in Sources */,
 				E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */,
 				E5705D652858C80900D25366 /* Polygon.swift in Sources */,
