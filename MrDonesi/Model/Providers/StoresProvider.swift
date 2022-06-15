@@ -13,9 +13,14 @@ protocol StoresProvider {
 }
 
 class WebStoresProvider: StoresProvider {
+    var storesCommand: StoreGroupsCommand?
+    var storeInfoCommand: StoreInfoCommand?
+    
     func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ()) {
-        let command = StoreGroupsCommand()
-        command.fetchData(callback: { res in
+        storesCommand = StoreGroupsCommand()
+        storesCommand?.latitude = 44.8088835
+        storesCommand?.longitude = 20.4634834
+        storesCommand?.fetchData(callback: { res in
             switch res {
             case .success(let stores):
                 callback(.success(stores))
@@ -26,9 +31,9 @@ class WebStoresProvider: StoresProvider {
     }
     
     func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ()) {
-        let command = StoreInfoCommand()
-        command.storeId = storeId
-        command.fetchData(callback: { res in
+        storeInfoCommand = StoreInfoCommand()
+        storeInfoCommand?.storeId = storeId
+        storeInfoCommand?.fetchData(callback: { res in
             switch res {
             case .success(let store):
                 callback(.success(store))
