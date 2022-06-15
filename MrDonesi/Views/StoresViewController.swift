@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 
 class StoresViewController: UIViewController {
+    let headerView: StoresListHeaderView
     let registeredSection: StoresSegmentView
     let restrauntsSection: StoresSegmentView
     let closedSection: StoresSegmentView
@@ -23,6 +24,7 @@ class StoresViewController: UIViewController {
         registeredSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
+        headerView = StoresListHeaderView()
         viewModel = vm
         super.init()
     }
@@ -32,6 +34,7 @@ class StoresViewController: UIViewController {
         registeredSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
+        headerView = StoresListHeaderView()
         viewModel = vm
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -54,16 +57,21 @@ class StoresViewController: UIViewController {
     }
     
     func setupViews() {
-        self.restrauntsSection.backgroundColor = .green
-        self.registeredSection.backgroundColor = .red
-        self.closedSection.backgroundColor = .cyan
+        self.view.addSubview(headerView)
         self.view.addSubview(registeredSection)
         self.view.addSubview(restrauntsSection)
         self.view.addSubview(closedSection)
     }
     
     func setupConstraints() {
-        var prevView: UIView? = nil
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        let hCt = headerView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        let hCh = headerView.heightAnchor.constraint(equalToConstant: UIDevice.hasTopNotch ? 120 : 80)
+        let hCl = headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        let hCtr = headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        NSLayoutConstraint.activate([hCt, hCh, hCl, hCtr])
+        
+        var prevView: UIView? = headerView
         for v in [registeredSection, restrauntsSection, closedSection] {
             v.translatesAutoresizingMaskIntoConstraints = false
             let tC = prevView == nil ? v.topAnchor.constraint(equalTo: self.view.topAnchor) : v.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
