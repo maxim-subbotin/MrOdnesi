@@ -106,4 +106,17 @@ class FileProvider {
         }
         return nil
     }
+    
+    func cleanTempDirectory() {
+        let tempFolder = URL(fileURLWithPath: NSTemporaryDirectory(),
+                                            isDirectory: true)
+        print(tempFolder.path)
+        guard let files = try? FileManager.default.contentsOfDirectory(atPath: tempFolder.path) else {
+            return
+        }
+        for file in files {
+            let url = tempFolder.appendingPathComponent(file)
+            try? FileManager.default.removeItem(at: url)
+        }
+    }
 }

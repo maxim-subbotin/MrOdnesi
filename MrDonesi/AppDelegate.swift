@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-    // TODO: remove all files from tmp folder
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        FileProvider().cleanTempDirectory()
+    }
 }
 
