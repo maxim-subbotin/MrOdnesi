@@ -32,6 +32,7 @@
 		E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */; };
 		E5B636852857F54D00CFD3E0 /* StoreInfoCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */; };
 		E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */; };
+		E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */; };
 		E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E072857D97400290E31 /* AppDelegate.swift */; };
 		E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E0B2857D97400290E31 /* ViewController.swift */; };
 		E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E0D2857D97400290E31 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommand.swift; sourceTree = "<group>"; };
 		E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommandTest.swift; sourceTree = "<group>"; };
 		E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		E5F35E042857D97400290E31 /* MrDonesi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDonesi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F35E072857D97400290E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F35E0B2857D97400290E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				E5705D602858C1CF00D25366 /* StoresProvider.swift */,
+				E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */,
 				E5705D682858C9F400D25366 /* CGPoint.swift in Sources */,
 				E587F0422858880900656C48 /* ServerError.swift in Sources */,
+				E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */,
 				E5B6367C2857F1A900CFD3E0 /* StoreGroup.swift in Sources */,
 				E5B636762857E7C900CFD3E0 /* StoreGroupsCommand.swift in Sources */,
 				E5B636632857E0EA00CFD3E0 /* RestaurantGroupLayout.swift in Sources */,

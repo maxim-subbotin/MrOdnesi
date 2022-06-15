@@ -35,6 +35,7 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     private(set) var groups = [StoreSet]()
     //weak var delegate: StoresViewControllerDelegate?
     var provider: StoresProvider
+    var imageProvider = ImageProvider()
     
     let subject = PassthroughSubject<StoresViewModelAction, Never>()
     
@@ -69,7 +70,7 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         }
         let store = group.stores[index]
         if let path = store.imageUrl, let url = URL(string: path) {
-            ImageLoader().fetchImage(url: url, callback: callback)
+            imageProvider.fetchImage(url: url, callback: callback)
         }
     }
 }
