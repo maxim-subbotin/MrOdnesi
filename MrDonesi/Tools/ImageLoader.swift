@@ -36,15 +36,21 @@ class ImageLoader {
     
     private var cancellables = Set<AnyCancellable>()
     private var cache = Cache()
+    private var currentRequests = [UUID: URLSessionDownloadTask]()
     
-    func fetchImage(url: URL, callback: @escaping (Result<UIImage, Error>) -> ()) {
+    func fetchImage(url: URL, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID {
+        let uuid = UUID()
+        
         // TODO: make cached images available after app relaunching
         // TODO: save image icons (300x300) to optimize gallery cells
         if let cachedImage = cache.image(url.path) {
             callback(.success(cachedImage))
-            return
+            return uuid
         }
         let task = URLSession.shared.downloadTask(with: url) { localUrl, response, error in
+            defer {
+                self.currentRequests.removeValue(forKey: uuid)
+            }
             if error != nil {
                 callback(.failure(ImageLoaderError.serverError(error!)))
                 return
@@ -57,5 +63,13 @@ class ImageLoader {
             }
         }
         task.resume()
+        
+        currentRequests[uuid] = task
+        return uuid
+    }
+    
+    func cancel(requestId: UUID) {
+        currentRequests[requestId]?.cancel()
+        currentRequests.removeValue(forKey: requestId)
     }
 }

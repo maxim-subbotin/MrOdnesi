@@ -16,6 +16,7 @@ class StoreGroupViewCell: UICollectionViewCell {
     private var categoriesView = TagsView()
     var index: Int?
     var groupName: String?
+    var currentGuid: UUID?
     
     var title: String? {
         get {
@@ -115,7 +116,7 @@ class StoreGroupViewCell: UICollectionViewCell {
         if let groupName = groupName, let index = index {
             title = viewModel?.storeName(group: groupName, index: index)
             categories = viewModel?.storeCategories(group: groupName, index: index)
-            viewModel?.downloadImage(forGroupName: groupName, index: index, callback: { res in
+            currentGuid = viewModel?.downloadImage(forGroupName: groupName, index: index, callback: { res in
                 switch res {
                 case .success(let img):
                     DispatchQueue.main.async {
@@ -136,5 +137,8 @@ class StoreGroupViewCell: UICollectionViewCell {
     func clear() {
         imageView.image = nil
         imageView.alpha = 0
+        if let id = currentGuid {
+            viewModel?.clearData(id: id)
+        }
     }
 }

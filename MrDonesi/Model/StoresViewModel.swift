@@ -22,9 +22,10 @@ protocol StoresViewModel {
     var subject: PassthroughSubject<StoresViewModelAction, Never> { get }
     func loadData()
     func group(forName name: String) -> StoreSet?
-    func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ())
+    func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID?
     func storeName(group name: String, index: Int) -> String?
     func storeCategories(group name: String, index: Int) -> [String]?
+    func clearData(id: UUID)
 }
 
 class MyStoresViewModel: ObservableObject, StoresViewModel {
@@ -81,18 +82,23 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         return group.stores[index].categories.map({ $0.name })
     }
     
-    func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ()) {
+    func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID? {
         guard let group = group(forName: name) else {
             callback(.failure(StoreError.groupWithNameNotFound))
-            return
+            return nil
         }
         if index >= group.stores.count {
             callback(.failure(StoreError.wrongIndexInGroup))
-            return
+            return nil
         }
         let store = group.stores[index]
         if let path = store.imageUrl, let url = URL(string: path) {
-            imageProvider.fetchImage(url: url, callback: callback)
+            return imageProvider.fetchImage(url: url, callback: callback)
         }
+        return nil
+    }
+    
+    func clearData(id: UUID) {
+        imageProvider.cancel(requestId: id)
     }
 }
