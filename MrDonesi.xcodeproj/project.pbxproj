@@ -12,7 +12,11 @@
 		E5705D652858C80900D25366 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D642858C80900D25366 /* Polygon.swift */; };
 		E5705D682858C9F400D25366 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D672858C9F400D25366 /* CGPoint.swift */; };
 		E5705D6B2858CE6100D25366 /* CGPointExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D6A2858CE6100D25366 /* CGPointExtTest.swift */; };
+		E5705D6D2858D4EF00D25366 /* StoresSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D6C2858D4EF00D25366 /* StoresSegmentView.swift */; };
 		E587F0422858880900656C48 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587F0412858880900656C48 /* ServerError.swift */; };
+		E59ADC5B285915C4006C87EC /* StoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ADC5A285915C4006C87EC /* StoresViewModel.swift */; };
+		E59ADC5D285923EB006C87EC /* StoreGroupScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ADC5C285923EB006C87EC /* StoreGroupScrollView.swift */; };
+		E59ADC5F28593264006C87EC /* StoreGroupCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ADC5E28593264006C87EC /* StoreGroupCellView.swift */; };
 		E5B6365A2857DB7500CFD3E0 /* StoreSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636592857DB7500CFD3E0 /* StoreSet.swift */; };
 		E5B6365C2857DBDD00CFD3E0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6365B2857DBDD00CFD3E0 /* Store.swift */; };
 		E5B6365F2857DD8F00CFD3E0 /* WorkingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6365E2857DD8F00CFD3E0 /* WorkingHours.swift */; };
@@ -27,8 +31,8 @@
 		E5B636812857F2AF00CFD3E0 /* StoreItemOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */; };
 		E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */; };
 		E5B636852857F54D00CFD3E0 /* StoreInfoCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */; };
+		E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */; };
 		E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E072857D97400290E31 /* AppDelegate.swift */; };
-		E5F35E0A2857D97400290E31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E092857D97400290E31 /* SceneDelegate.swift */; };
 		E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E0B2857D97400290E31 /* ViewController.swift */; };
 		E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E0D2857D97400290E31 /* Main.storyboard */; };
 		E5F35E112857D97800290E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E102857D97800290E31 /* Assets.xcassets */; };
@@ -52,7 +56,11 @@
 		E5705D642858C80900D25366 /* Polygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
 		E5705D672858C9F400D25366 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		E5705D6A2858CE6100D25366 /* CGPointExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtTest.swift; sourceTree = "<group>"; };
+		E5705D6C2858D4EF00D25366 /* StoresSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresSegmentView.swift; sourceTree = "<group>"; };
 		E587F0412858880900656C48 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		E59ADC5A285915C4006C87EC /* StoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewModel.swift; sourceTree = "<group>"; };
+		E59ADC5C285923EB006C87EC /* StoreGroupScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGroupScrollView.swift; sourceTree = "<group>"; };
+		E59ADC5E28593264006C87EC /* StoreGroupCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGroupCellView.swift; sourceTree = "<group>"; };
 		E5B636592857DB7500CFD3E0 /* StoreSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSet.swift; sourceTree = "<group>"; };
 		E5B6365B2857DBDD00CFD3E0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		E5B6365E2857DD8F00CFD3E0 /* WorkingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHours.swift; sourceTree = "<group>"; };
@@ -68,9 +76,9 @@
 		E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemOption.swift; sourceTree = "<group>"; };
 		E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommand.swift; sourceTree = "<group>"; };
 		E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommandTest.swift; sourceTree = "<group>"; };
+		E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E5F35E042857D97400290E31 /* MrDonesi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDonesi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F35E072857D97400290E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5F35E092857D97400290E31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5F35E0B2857D97400290E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5F35E0E2857D97400290E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5F35E102857D97800290E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +176,14 @@
 			path = Commands;
 			sourceTree = "<group>";
 		};
+		E5ECE7DE2859BF7F00B5ABE0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		E5F35DFB2857D97400290E31 = {
 			isa = PBXGroup;
 			children = (
@@ -189,13 +205,13 @@
 		E5F35E062857D97400290E31 /* MrDonesi */ = {
 			isa = PBXGroup;
 			children = (
+				E5ECE7DE2859BF7F00B5ABE0 /* Tools */,
 				E5705D662858C9E400D25366 /* Extensions */,
 				E5B636642857E16700CFD3E0 /* Commands */,
 				E5B636582857DB5700CFD3E0 /* Data */,
 				E5F35E1C2857D9E900290E31 /* Model */,
 				E5F35E1B2857D9E200290E31 /* Views */,
 				E5F35E072857D97400290E31 /* AppDelegate.swift */,
-				E5F35E092857D97400290E31 /* SceneDelegate.swift */,
 				E5F35E0B2857D97400290E31 /* ViewController.swift */,
 				E5F35E0D2857D97400290E31 /* Main.storyboard */,
 				E5F35E102857D97800290E31 /* Assets.xcassets */,
@@ -209,6 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				E5F35E1D2857D9FD00290E31 /* StoresViewController.swift */,
+				E5705D6C2858D4EF00D25366 /* StoresSegmentView.swift */,
+				E59ADC5C285923EB006C87EC /* StoreGroupScrollView.swift */,
+				E59ADC5E28593264006C87EC /* StoreGroupCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				E5705D5F2858C1BB00D25366 /* Providers */,
+				E59ADC5A285915C4006C87EC /* StoresViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,22 +355,26 @@
 			files = (
 				E5B636612857E04300CFD3E0 /* StoreCategory.swift in Sources */,
 				E5B6365F2857DD8F00CFD3E0 /* WorkingHours.swift in Sources */,
+				E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */,
 				E5B636812857F2AF00CFD3E0 /* StoreItemOption.swift in Sources */,
 				E5705D632858C7D000D25366 /* DeliveryZone.swift in Sources */,
 				E5B6365C2857DBDD00CFD3E0 /* Store.swift in Sources */,
+				E59ADC5B285915C4006C87EC /* StoresViewModel.swift in Sources */,
 				E5B636662857E17600CFD3E0 /* Command.swift in Sources */,
 				E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */,
 				E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */,
 				E5B6365A2857DB7500CFD3E0 /* StoreSet.swift in Sources */,
+				E5705D6D2858D4EF00D25366 /* StoresSegmentView.swift in Sources */,
 				E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */,
 				E5705D682858C9F400D25366 /* CGPoint.swift in Sources */,
 				E587F0422858880900656C48 /* ServerError.swift in Sources */,
 				E5B6367C2857F1A900CFD3E0 /* StoreGroup.swift in Sources */,
 				E5B636762857E7C900CFD3E0 /* StoreGroupsCommand.swift in Sources */,
 				E5B636632857E0EA00CFD3E0 /* RestaurantGroupLayout.swift in Sources */,
+				E59ADC5F28593264006C87EC /* StoreGroupCellView.swift in Sources */,
 				E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */,
 				E5705D652858C80900D25366 /* Polygon.swift in Sources */,
-				E5F35E0A2857D97400290E31 /* SceneDelegate.swift in Sources */,
+				E59ADC5D285923EB006C87EC /* StoreGroupScrollView.swift in Sources */,
 				E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */,
 				E5F35E1E2857D9FD00290E31 /* StoresViewController.swift in Sources */,
 			);
