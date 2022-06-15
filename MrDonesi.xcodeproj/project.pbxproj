@@ -36,6 +36,10 @@
 		E5ECE7E42859DAE700B5ABE0 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E32859DAE700B5ABE0 /* TagsView.swift */; };
 		E5ECE7E62859DC5A00B5ABE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E52859DC5A00B5ABE0 /* String.swift */; };
 		E5ECE7E82859E30700B5ABE0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E72859E30700B5ABE0 /* UIColor.swift */; };
+		E5ECE7EE2859E50100B5ABE0 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5ECE7EB2859E50100B5ABE0 /* Nunito-Bold.ttf */; };
+		E5ECE7EF2859E50100B5ABE0 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5ECE7EC2859E50100B5ABE0 /* Nunito-Light.ttf */; };
+		E5ECE7F02859E50100B5ABE0 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5ECE7ED2859E50100B5ABE0 /* Nunito-Medium.ttf */; };
+		E5ECE7F22859E55E00B5ABE0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */; };
 		E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E072857D97400290E31 /* AppDelegate.swift */; };
 		E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F35E0B2857D97400290E31 /* ViewController.swift */; };
 		E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F35E0D2857D97400290E31 /* Main.storyboard */; };
@@ -85,6 +89,10 @@
 		E5ECE7E32859DAE700B5ABE0 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		E5ECE7E52859DC5A00B5ABE0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E5ECE7E72859E30700B5ABE0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E5ECE7EB2859E50100B5ABE0 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		E5ECE7EC2859E50100B5ABE0 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		E5ECE7ED2859E50100B5ABE0 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E5F35E042857D97400290E31 /* MrDonesi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDonesi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F35E072857D97400290E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F35E0B2857D97400290E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				E5705D672858C9F400D25366 /* CGPoint.swift */,
 				E5ECE7E52859DC5A00B5ABE0 /* String.swift */,
 				E5ECE7E72859E30700B5ABE0 /* UIColor.swift */,
+				E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +204,24 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		E5ECE7E92859E4C200B5ABE0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5ECE7EA2859E4C900B5ABE0 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5ECE7EA2859E4C900B5ABE0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5ECE7EB2859E50100B5ABE0 /* Nunito-Bold.ttf */,
+				E5ECE7EC2859E50100B5ABE0 /* Nunito-Light.ttf */,
+				E5ECE7ED2859E50100B5ABE0 /* Nunito-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E5F35DFB2857D97400290E31 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +243,7 @@
 		E5F35E062857D97400290E31 /* MrDonesi */ = {
 			isa = PBXGroup;
 			children = (
+				E5ECE7E92859E4C200B5ABE0 /* Resources */,
 				E5ECE7DE2859BF7F00B5ABE0 /* Tools */,
 				E5705D662858C9E400D25366 /* Extensions */,
 				E5B636642857E16700CFD3E0 /* Commands */,
@@ -342,7 +370,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F35E142857D97800290E31 /* LaunchScreen.storyboard in Resources */,
+				E5ECE7EF2859E50100B5ABE0 /* Nunito-Light.ttf in Resources */,
+				E5ECE7F02859E50100B5ABE0 /* Nunito-Medium.ttf in Resources */,
 				E5F35E112857D97800290E31 /* Assets.xcassets in Resources */,
+				E5ECE7EE2859E50100B5ABE0 /* Nunito-Bold.ttf in Resources */,
 				E5F35E0F2857D97400290E31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +421,7 @@
 				E5ECE7E42859DAE700B5ABE0 /* TagsView.swift in Sources */,
 				E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */,
 				E5705D652858C80900D25366 /* Polygon.swift in Sources */,
+				E5ECE7F22859E55E00B5ABE0 /* UIFont.swift in Sources */,
 				E59ADC5D285923EB006C87EC /* StoreGroupScrollView.swift in Sources */,
 				E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */,
 				E5F35E1E2857D9FD00290E31 /* StoresViewController.swift in Sources */,

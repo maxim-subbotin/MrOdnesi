@@ -31,7 +31,7 @@ class TagsView: UIView {
         let gap: CGFloat = 10
         let offset: CGFloat = 10
         
-        let font = UIFont.systemFont(ofSize: 14)
+        let font = UIFont.customMedium(ofSize: 14)
         
         let max = self.frame.size.width
         

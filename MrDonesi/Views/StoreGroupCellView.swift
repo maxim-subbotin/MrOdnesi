@@ -70,7 +70,7 @@ class StoreGroupViewCell: UICollectionViewCell {
         
         // TODO: support of long store names, multilines
         titleLabel.textColor = .white
-        titleLabel.font = .systemFont(ofSize: 20)
+        titleLabel.font = .customMedium(ofSize: 20)
         titleLabel.layer.shadowColor = UIColor.black.cgColor
         titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         titleLabel.layer.shadowRadius = 3.0

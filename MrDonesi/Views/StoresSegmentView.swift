@@ -54,9 +54,8 @@ class StoresSegmentView: UIView {
         headerView.backgroundColor = .white
         
         headerTitle = UILabel()
-        headerTitle.font = .systemFont(ofSize: 18)
+        headerTitle.font = .customBold(ofSize: 18)
         headerTitle.textColor = .black
-        headerTitle.text = "Title"
         
         headerView.addSubview(headerTitle)
         
