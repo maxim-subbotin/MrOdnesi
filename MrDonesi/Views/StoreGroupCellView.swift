@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class StoreGroupViewCell: UICollectionViewCell {
-    var viewModel: StoresViewModel?
+    weak var viewModel: StoresViewModel?
     private var imageView = UIImageView()
     private var toneView = UIView()
     private var titleLabel = UILabel()
@@ -112,17 +112,21 @@ class StoreGroupViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([ctCt, ctCb, ctCl, ctCr])
     }
     
+    deinit {
+        clear()
+    }
+    
     func prepare() {
         if let groupName = groupName, let index = index {
             title = viewModel?.storeName(group: groupName, index: index)
             categories = viewModel?.storeCategories(group: groupName, index: index)
-            currentGuid = viewModel?.downloadImage(forGroupName: groupName, index: index, callback: { res in
+            currentGuid = viewModel?.downloadImage(forGroupName: groupName, index: index, callback: { [weak self] res in
                 switch res {
                 case .success(let img):
                     DispatchQueue.main.async {
-                        self.imageView.image = img
+                        self?.imageView.image = img
                         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
-                            self.imageView.alpha = 1.0
+                            self?.imageView.alpha = 1.0
                         }
                     }
                 case .failure(let error):

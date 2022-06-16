@@ -13,7 +13,7 @@ enum StoreViewModelAction {
     case dataLoaded
 }
 
-protocol StoreViewModel {
+protocol StoreViewModel: class {
     var store: Store { get }
     init(store: Store, provider: StoresProvider)
     var subject: PassthroughSubject<StoreViewModelAction, Never> { get }

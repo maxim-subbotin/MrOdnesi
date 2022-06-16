@@ -117,6 +117,11 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         refreshScrollSize()
     }
     
+    deinit {
+        imageView.image = nil
+        cancellable.forEach({ $0.cancel() })
+    }
+    
     func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let ivCt = imageView.topAnchor.constraint(equalTo: self.view.topAnchor)
@@ -183,16 +188,16 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func prepare() {
         viewModel?.loadData()
-        viewModel?.subject.sink(receiveValue: { action in
-            self.on(action: action)
+        viewModel?.subject.sink(receiveValue: {[weak self] action in
+            self?.on(action: action)
         }).store(in: &cancellable)
-        _ = viewModel?.downloadImage(callback: { res in
+        _ = viewModel?.downloadImage(callback: {[weak self] res in
             switch res {
             case .success(let img):
                 DispatchQueue.main.async {
-                    self.imageView.image = img
+                    self?.imageView.image = img
                     UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
-                        self.imageView.alpha = 1.0
+                        self?.imageView.alpha = 1.0
                     }
                 }
             case .failure(let error):

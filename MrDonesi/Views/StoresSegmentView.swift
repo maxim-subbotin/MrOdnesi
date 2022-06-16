@@ -15,7 +15,7 @@ class StoresSegmentView: UIView {
     var headerTitle = UILabel()
     var groupScroll: StoreGroupScrollView
     
-    var viewModel: StoresViewModel
+    var viewModel: StoresViewModel?
     var tapCallback: StoreTapCallback?
     
     var title: String {

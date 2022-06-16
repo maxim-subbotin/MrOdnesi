@@ -19,7 +19,7 @@ class MenuItemCellView: UITableViewCell {
     
     private var currentGuid: UUID?
     
-    var viewModel: StoreViewModel? {
+    weak var viewModel: StoreViewModel? {
         didSet {
             prepare()
         }
@@ -116,15 +116,19 @@ class MenuItemCellView: UITableViewCell {
         NSLayoutConstraint.activate([plCh, plCl, plCt, plCtr])
     }
     
+    deinit {
+        clear()
+    }
+    
     func prepare() {
         if let groupNumber = groupNumber, let itemNumber = itemNumber {
-            currentGuid = viewModel?.downloadImage(groupNum: groupNumber, itemNum: itemNumber, callback: { res in
+            currentGuid = viewModel?.downloadImage(groupNum: groupNumber, itemNum: itemNumber, callback: {[weak self] res in
                 switch res {
                 case .success(let image):
                     DispatchQueue.main.async {
-                        self.iconView.image = image
+                        self?.iconView.image = image
                         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
-                            self.iconView.alpha = 1.0
+                            self?.iconView.alpha = 1.0
                         }
                     }
                 case .failure(let error):

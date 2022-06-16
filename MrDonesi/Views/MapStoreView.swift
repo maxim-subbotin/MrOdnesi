@@ -40,6 +40,12 @@ class MapStoreView: UIView, MKMapViewDelegate {
         NSLayoutConstraint.activate([mvCx, mvCy, mvCw, mvCh])
     }
     
+    deinit {
+        mapView.delegate = nil
+        mapView.removeOverlays(mapView.overlays)
+        mapView.removeFromSuperview()
+    }
+    
     func set(latitude: Double, longitude: Double) {
         point = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let region = MKCoordinateRegion(center: point, latitudinalMeters: 1000, longitudinalMeters: 1000)

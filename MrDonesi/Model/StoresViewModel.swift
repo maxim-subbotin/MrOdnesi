@@ -18,7 +18,7 @@ enum StoresViewModelAction {
     case selectStore(_ store: Store)
 }
 
-protocol StoresViewModel {
+protocol StoresViewModel: class {
     var groups: StoreSet { get }
     var subject: PassthroughSubject<StoresViewModelAction, Never> { get }
     func loadData()
