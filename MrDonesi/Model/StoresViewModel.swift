@@ -15,6 +15,7 @@ import UIKit
 
 enum StoresViewModelAction {
     case refreshData
+    case selectStore(_ store: Store)
 }
 
 protocol StoresViewModel {
@@ -26,6 +27,7 @@ protocol StoresViewModel {
     func storeName(group name: String, index: Int) -> String?
     func storeCategories(group name: String, index: Int) -> [String]?
     func clearData(id: UUID)
+    func selectStore(index: Int, groupName: String)
 }
 
 class MyStoresViewModel: ObservableObject, StoresViewModel {
@@ -35,6 +37,7 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         case storeDoesntContainImage
         case incorrectStoreImage
     }
+    // TODO: use dictionary: [String: [Store]]
     private(set) var groups = [StoreSet]()
     //weak var delegate: StoresViewControllerDelegate?
     var provider: StoresProvider
@@ -93,12 +96,23 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         }
         let store = group.stores[index]
         if let path = store.imageUrl, let url = URL(string: path) {
-            return imageProvider.fetchImage(url: url, callback: callback)
+            return imageProvider.fetchImage(url: url, isIcon: true, callback: callback)
         }
         return nil
     }
     
     func clearData(id: UUID) {
         imageProvider.cancel(requestId: id)
+    }
+    
+    func selectStore(index: Int, groupName: String) {
+        guard let group = group(forName: groupName) else {
+            return
+        }
+        if index >= group.stores.count {
+            return
+        }
+        let store = group.stores[index]
+        subject.send(.selectStore(store))
     }
 }

@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 
 class StoresSegmentView: UIView {
+    typealias StoreTapCallback = (Int) -> ()
+    
     var headerView = UIView()
     var headerTitle = UILabel()
     var groupScroll: StoreGroupScrollView
     
     var viewModel: StoresViewModel
-    //var name: String? = nil
+    var tapCallback: StoreTapCallback?
     
     var title: String {
         get {
@@ -60,6 +62,8 @@ class StoresSegmentView: UIView {
         headerView.addSubview(headerTitle)
         
         self.addSubview(headerView)
+        
+        groupScroll.tapCallback = onTapStore(index:)
         self.addSubview(groupScroll)
     }
     
@@ -84,5 +88,9 @@ class StoresSegmentView: UIView {
         let gsCl = groupScroll.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         let gsCtr = groupScroll.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         NSLayoutConstraint.activate([gsCt, gsCb, gsCl, gsCtr])
+    }
+    
+    func onTapStore(index: Int) {
+        tapCallback?(index)
     }
 }

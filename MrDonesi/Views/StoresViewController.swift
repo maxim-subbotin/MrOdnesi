@@ -87,6 +87,11 @@ class StoresViewController: UIViewController {
         switch action {
         case .refreshData:
             refreshData()
+        case .selectStore(let store):
+            let storeVC = StoreViewController()
+            storeVC.viewModel = MyStoreViewModel(store: store)
+            self.present(storeVC, animated: true)
+            //self.navigationController?.pushViewController(storeVC, animated: true)
         }
     }
     

@@ -11,8 +11,8 @@ import UIKit
 class ImageProvider {
     var imageLoader = ImageLoader()
     
-    func fetchImage(url: URL, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID {
-        return imageLoader.fetchImage(url: url, callback: callback)
+    func fetchImage(url: URL, isIcon: Bool = false, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID {
+        return imageLoader.fetchImage(url: url, callback: callback, isIcon: isIcon)
     }
     
     func cancel(requestId: UUID) {

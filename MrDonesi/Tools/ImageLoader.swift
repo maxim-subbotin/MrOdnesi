@@ -19,12 +19,12 @@ class ImageLoader {
     private var currentRequests = [UUID: URLSessionDownloadTask]()
     private var fileProvider = FileProvider()
     
-    func fetchImage(url: URL, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID {
+    func fetchImage(url: URL, callback: @escaping (Result<UIImage, Error>) -> (), isIcon: Bool = false) -> UUID {
         let uuid = UUID()
         
         // TODO: make cached images available after app relaunching
         // TODO: save image icons (300x300) to optimize gallery cells
-        if let cachedImage = fileProvider.getFromCache(forUrl: url, allowIcon: true) {
+        if let cachedImage = fileProvider.getFromCache(forUrl: url, allowIcon: isIcon) {
             callback(.success(cachedImage))
             return uuid
         }

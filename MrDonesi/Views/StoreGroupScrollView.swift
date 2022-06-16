@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
+    typealias TapCallback = (Int) -> ()
     
     enum CellType: String {
         case store
@@ -20,6 +21,7 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
             self.reloadData()
         }
     }
+    var tapCallback: TapCallback?
 
     init(viewModel: StoresViewModel, name: String? = nil) {
         self.viewModel = viewModel
@@ -62,5 +64,11 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
             return storeCellView
         }
         return cellView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let name = name {
+            viewModel.selectStore(index: indexPath.item, groupName: name)
+        }
     }
 }
