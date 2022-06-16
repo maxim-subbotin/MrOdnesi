@@ -14,9 +14,10 @@ class StoresViewController: UIViewController {
     let scrollView = UIScrollView()
     let recommendedSection: StoresSegmentView
     let restrauntsSection: StoresSegmentView
+    // TODO: make icon monochrome for closed stores
     let closedSection: StoresSegmentView
     
-    @ObservedObject private var viewModel = MyStoresViewModel(provider: WebStoresProvider())
+    @ObservedObject private var viewModel = MrDiStoresViewModel(provider: WebStoresProvider())
     
     private var cancellable = Set<AnyCancellable>()
     
@@ -27,7 +28,7 @@ class StoresViewController: UIViewController {
     private var isFirstAppearance = true
     
     init() {
-        let vm = MyStoresViewModel(provider: WebStoresProvider())
+        let vm = MrDiStoresViewModel(provider: WebStoresProvider())
         recommendedSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
@@ -36,7 +37,7 @@ class StoresViewController: UIViewController {
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        let vm = MyStoresViewModel(provider: WebStoresProvider())
+        let vm = MrDiStoresViewModel(provider: WebStoresProvider())
         recommendedSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
@@ -60,6 +61,7 @@ class StoresViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // TODO: show spinner while data is loading
         // TODO: reload data on view pull down
         // load data on first view appearance only
         if isFirstAppearance {
@@ -118,7 +120,7 @@ class StoresViewController: UIViewController {
             refreshData()
         case .selectStore(let store):
             let storeVC = StoreViewController()
-            storeVC.viewModel = MyStoreViewModel(store: store, provider: viewModel.provider)
+            storeVC.viewModel = MrDiStoreViewModel(store: store, provider: viewModel.provider)
             self.navigationController?.pushViewController(storeVC, animated: true)
         case .updateAddress(let address):
             headerView.address = address
@@ -126,7 +128,7 @@ class StoresViewController: UIViewController {
     }
     
     private func refreshData() {
-        // TODO: hide sections if data is not presented in set
+        // TODO: make section hiding/showing more elegant
         if viewModel.groups.recommended != nil {
             recommendedSection.title = viewModel.groups.recommended!.name
             show(true, section: recommendedSection, constraintId: recommendedHeightConstraint)

@@ -25,9 +25,7 @@ class MenuItemCellView: UITableViewCell {
             prepare()
         }
     }
-    
-    // TODO: add gray screen for inactive items
-    
+
     var name: String? {
         get {
             return nameLabel.text

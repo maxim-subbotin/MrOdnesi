@@ -96,6 +96,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         discountLabel.iconColor = .gray
         scrollView.addSubview(discountLabel)
         
+        // TODO: decrease header area on scroll up and add other kinds of fashionable animations
         scrollView.addSubview(mapView)
         
         menuView.delegate = self

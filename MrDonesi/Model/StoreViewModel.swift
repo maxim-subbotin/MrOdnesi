@@ -34,7 +34,7 @@ protocol StoreViewModel: class {
     func clearData(id: UUID)
 }
 
-class MyStoreViewModel: ObservableObject, StoreViewModel {
+class MrDiStoreViewModel: ObservableObject, StoreViewModel {
     private(set) var store: Store
     private var imageProvider = ImageProvider()
     var provider: StoresProvider

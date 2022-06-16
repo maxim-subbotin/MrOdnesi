@@ -50,7 +50,7 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = MyStoresViewModel(provider: WebStoresProvider())
+        self.viewModel = MrDiStoresViewModel(provider: WebStoresProvider())
         self.name = ""
         super.init(coder: coder)
     }

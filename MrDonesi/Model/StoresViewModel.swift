@@ -31,14 +31,13 @@ protocol StoresViewModel: class {
     func selectStore(index: Int, groupName: String)
 }
 
-class MyStoresViewModel: ObservableObject, StoresViewModel {
+class MrDiStoresViewModel: ObservableObject, StoresViewModel {
     enum StoreError: Error {
         case groupWithNameNotFound
         case wrongIndexInGroup
         case storeDoesntContainImage
         case incorrectStoreImage
     }
-    // TODO: use dictionary: [String: [Store]]
     private(set) var groups = StoreSet()
     //weak var delegate: StoresViewControllerDelegate?
     var provider: StoresProvider
