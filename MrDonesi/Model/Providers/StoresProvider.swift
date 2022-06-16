@@ -8,7 +8,7 @@
 import Foundation
 
 protocol StoresProvider {
-    func fetchStores(callback: @escaping (Result<[StoreGroup], Error>) -> ())
+    func fetchStores(latitude: Double, longitude: Double, callback: @escaping (Result<[StoreGroup], Error>) -> ())
     func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ())
 }
 
@@ -16,10 +16,11 @@ class WebStoresProvider: StoresProvider {
     var storesCommand: StoreGroupsCommand?
     var storeInfoCommand: StoreInfoCommand?
     
-    func fetchStores(callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
+    func fetchStores(latitude: Double = 0, longitude: Double = 0, callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
         storesCommand = StoreGroupsCommand()
-        storesCommand?.latitude = 44.8088835
-        storesCommand?.longitude = 20.4634834
+        // Just for test purposes: use default BG coordinates by default
+        storesCommand?.latitude = latitude == 0 ? 44.8088835 : latitude
+        storesCommand?.longitude = longitude == 0 ? 20.4634834 : longitude
         storesCommand?.fetchData(callback: { res in
             switch res {
             case .success(let stores):
@@ -45,13 +46,11 @@ class WebStoresProvider: StoresProvider {
 }
 
 class LocalStoresProvider: StoresProvider {
-    func fetchStores(callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
+    func fetchStores(latitude: Double, longitude: Double, callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
         assertionFailure("Not implemented")
     }
-    
+
     func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ()) {
         assertionFailure("Not implemented")
     }
-    
-    
 }

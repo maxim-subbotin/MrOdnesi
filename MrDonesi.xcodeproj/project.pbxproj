@@ -35,6 +35,8 @@
 		E5D81778285B2AD600EA885D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D81777285B2AD600EA885D /* Date.swift */; };
 		E5D8177A285B439900EA885D /* MenuGroupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D81779285B439900EA885D /* MenuGroupHeaderView.swift */; };
 		E5D8177C285B463A00EA885D /* MenuItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8177B285B463A00EA885D /* MenuItemCellView.swift */; };
+		E5D8177E285B833300EA885D /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8177D285B833300EA885D /* LocationProvider.swift */; };
+		E5D81780285B8BF500EA885D /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8177F285B8BF500EA885D /* CLPlacemark.swift */; };
 		E5DDA16B285A88AC00931C08 /* ImagedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */; };
 		E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */; };
 		E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */; };
@@ -99,6 +101,8 @@
 		E5D81777285B2AD600EA885D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E5D81779285B439900EA885D /* MenuGroupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupHeaderView.swift; sourceTree = "<group>"; };
 		E5D8177B285B463A00EA885D /* MenuItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCellView.swift; sourceTree = "<group>"; };
+		E5D8177D285B833300EA885D /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		E5D8177F285B8BF500EA885D /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
 		E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagedLabelView.swift; sourceTree = "<group>"; };
 		E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				E5705D602858C1CF00D25366 /* StoresProvider.swift */,
 				E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */,
 				E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */,
+				E5D8177D285B833300EA885D /* LocationProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 				E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */,
 				E5ECE7F9285A1E2800B5ABE0 /* UIImage.swift */,
 				E5D81777285B2AD600EA885D /* Date.swift */,
+				E5D8177F285B8BF500EA885D /* CLPlacemark.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				E5B636662857E17600CFD3E0 /* Command.swift in Sources */,
 				E5F35E0C2857D97400290E31 /* ViewController.swift in Sources */,
 				E5F35E082857D97400290E31 /* AppDelegate.swift in Sources */,
+				E5D81780285B8BF500EA885D /* CLPlacemark.swift in Sources */,
 				E5ECE7FA285A1E2800B5ABE0 /* UIImage.swift in Sources */,
 				E5B6365A2857DB7500CFD3E0 /* StoreGroup.swift in Sources */,
 				E5705D6D2858D4EF00D25366 /* StoresSegmentView.swift in Sources */,
@@ -469,6 +476,7 @@
 				E5D81778285B2AD600EA885D /* Date.swift in Sources */,
 				E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */,
 				E5F35E1E2857D9FD00290E31 /* StoresViewController.swift in Sources */,
+				E5D8177E285B833300EA885D /* LocationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +670,8 @@
 				DEVELOPMENT_TEAM = 4QVDV2N2SB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MrDonesi/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "I want to know where you live.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "I want to know where you live.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -691,6 +701,8 @@
 				DEVELOPMENT_TEAM = 4QVDV2N2SB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MrDonesi/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "I want to know where you live.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "I want to know where you live.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

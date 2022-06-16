@@ -104,10 +104,8 @@ class StoresViewController: UIViewController {
             let storeVC = StoreViewController()
             storeVC.viewModel = MyStoreViewModel(store: store, provider: viewModel.provider)
             self.navigationController?.pushViewController(storeVC, animated: true)
-            //storeVC.modalPresentationStyle = .fullScreen
-            //storeVC.modalTransitionStyle = .coverVertical
-            //self.present(storeVC, animated: true)
-            //self.navigationController?.pushViewController(storeVC, animated: true)
+        case .updateAddress(let address):
+            headerView.address = address
         }
     }
     

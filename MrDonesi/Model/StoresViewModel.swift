@@ -16,6 +16,7 @@ import UIKit
 enum StoresViewModelAction {
     case refreshData
     case selectStore(_ store: Store)
+    case updateAddress(_ address: String)
 }
 
 protocol StoresViewModel: class {
@@ -42,15 +43,26 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     //weak var delegate: StoresViewControllerDelegate?
     var provider: StoresProvider
     var imageProvider = ImageProvider()
+    var locationProvider = LocationProvider()
     
     let subject = PassthroughSubject<StoresViewModelAction, Never>()
+    var coordinate: CGPoint?
+    var currentAddress: String?
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(provider: StoresProvider) {
         self.provider = provider
+        locationProvider
+            .subject
+            .sink(receiveValue: on(locationAction:))
+            .store(in: &cancellables)
     }
     
     func loadData() {
-        self.provider.fetchStores(callback: { res in
+        let lat = coordinate?.x ?? 0
+        let lng = coordinate?.y ?? 0
+        self.provider.fetchStores(latitude: lat, longitude: lng, callback: { res in
             switch res {
             case .success(let groups):
                 self.groups = StoreSet(groups: groups)
@@ -59,6 +71,7 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
                 print("Error: \(error)")
             }
         })
+        locationProvider.checkAuth()
     }
     
     func group(forName name: String) -> StoreGroup? {
@@ -114,5 +127,16 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         }
         let store = group.stores[index]
         subject.send(.selectStore(store))
+    }
+    
+    private func on(locationAction action: LocationProvider.Action) {
+        switch action {
+        case .locationUpdated(let loc):
+            self.coordinate = CGPoint(x: loc.lat, y: loc.lng)
+            self.currentAddress = loc.address
+            subject.send(.updateAddress(loc.address))
+            
+            loadData()
+        }
     }
 }
