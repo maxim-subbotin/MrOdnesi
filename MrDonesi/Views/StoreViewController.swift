@@ -267,6 +267,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
             itemView.name = viewModel?.itemName(groupNum: indexPath.section, itemNum: indexPath.item)
             itemView.itemDescription = viewModel?.itemDescription(groupNum: indexPath.section, itemNum: indexPath.item)
             itemView.itemPrice = viewModel?.itemPrice(groupNum: indexPath.section, itemNum: indexPath.item)
+            itemView.active = viewModel?.itemActive(groupNum: indexPath.section, itemNum: indexPath.item) ?? false
             itemView.groupNumber = indexPath.section
             itemView.itemNumber = indexPath.item
             itemView.viewModel = viewModel

@@ -13,6 +13,7 @@ class MenuItemCellView: UITableViewCell {
     private var descLabel = UILabel()
     private var priceLabel = UILabel()
     private var iconView = UIImageView()
+    private var inactiveView = UIView()
     
     var groupNumber: Int?
     var itemNumber: Int?
@@ -51,6 +52,14 @@ class MenuItemCellView: UITableViewCell {
             priceLabel.text = newValue
         }
     }
+    var active: Bool {
+        get {
+            return inactiveView.isHidden
+        }
+        set {
+            inactiveView.isHidden = newValue
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -84,6 +93,10 @@ class MenuItemCellView: UITableViewCell {
         iconView.clipsToBounds = true
         iconView.layer.cornerRadius = 5
         self.contentView.addSubview(iconView)
+        
+        inactiveView.backgroundColor = UIColor(hex6: 0x000000, alpha: 0.1)
+        inactiveView.isHidden = true
+        self.contentView.addSubview(inactiveView)
     }
     
     func setupConstraints() {
@@ -114,6 +127,13 @@ class MenuItemCellView: UITableViewCell {
         let plCt = priceLabel.topAnchor.constraint(equalTo: descLabel.bottomAnchor)
         let plCtr = priceLabel.trailingAnchor.constraint(equalTo: iconView.leadingAnchor, constant: -20)
         NSLayoutConstraint.activate([plCh, plCl, plCt, plCtr])
+        
+        inactiveView.translatesAutoresizingMaskIntoConstraints = false
+        let iaCw = inactiveView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor)
+        let iaCh = inactiveView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor)
+        let iaCx = inactiveView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor)
+        let iaCy = inactiveView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+        NSLayoutConstraint.activate([iaCw, iaCh, iaCx, iaCy])
     }
     
     deinit {

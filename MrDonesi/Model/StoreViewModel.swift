@@ -30,6 +30,7 @@ protocol StoreViewModel: class {
     func itemName(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String?
     func itemDescription(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String?
     func itemPrice(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String?
+    func itemActive(groupNum groupIndex: Int, itemNum itemIndex: Int) -> Bool
     func clearData(id: UUID)
 }
 
@@ -144,6 +145,10 @@ class MyStoreViewModel: ObservableObject, StoreViewModel {
             return "\(Int(p)) RSD"
         }
         return nil
+    }
+    
+    func itemActive(groupNum groupIndex: Int, itemNum itemIndex: Int) -> Bool {
+        return item(groupNum: groupIndex, itemNum: itemIndex)?.active ?? false
     }
     
     func downloadImage(groupNum groupIndex: Int, itemNum itemIndex: Int, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID? {
