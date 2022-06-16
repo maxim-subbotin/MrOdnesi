@@ -94,12 +94,18 @@ class StoreViewController: UIViewController {
         scrollView.addSubview(discountLabel)
         
         scrollView.addSubview(mapView)
+
+        let backImg = UIImage(systemName: "chevron.left.circle.fill")
+        self.navigationController?.navigationBar.backIndicatorImage = backImg
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
+        self.navigationController?.navigationBar.backItem?.backButtonTitle = " "
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let ivCt = imageView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        let ivCh = imageView.heightAnchor.constraint(equalToConstant: 200)
+        let ivCh = imageView.heightAnchor.constraint(equalToConstant: 250)
         let ivCw = imageView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
         let ivCx = imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         NSLayoutConstraint.activate([ivCt, ivCh, ivCw, ivCx])
@@ -191,6 +197,10 @@ class StoreViewController: UIViewController {
                 mapView.set(polygons: points)
             }
         }
+    }
+    
+    @objc func onBack() {
+        self.dismiss(animated: true)
     }
 }
 

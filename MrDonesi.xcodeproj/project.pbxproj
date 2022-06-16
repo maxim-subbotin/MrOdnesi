@@ -32,6 +32,7 @@
 		E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */; };
 		E5B636852857F54D00CFD3E0 /* StoreInfoCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */; };
 		E5D81776285B1D9C00EA885D /* MapStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D81775285B1D9C00EA885D /* MapStoreView.swift */; };
+		E5D81778285B2AD600EA885D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D81777285B2AD600EA885D /* Date.swift */; };
 		E5DDA16B285A88AC00931C08 /* ImagedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */; };
 		E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */; };
 		E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */; };
@@ -93,6 +94,7 @@
 		E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommand.swift; sourceTree = "<group>"; };
 		E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommandTest.swift; sourceTree = "<group>"; };
 		E5D81775285B1D9C00EA885D /* MapStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStoreView.swift; sourceTree = "<group>"; };
+		E5D81777285B2AD600EA885D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagedLabelView.swift; sourceTree = "<group>"; };
 		E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				E5ECE7F12859E55E00B5ABE0 /* UIFont.swift */,
 				E5ECE7F52859F32600B5ABE0 /* UIDevice.swift */,
 				E5ECE7F9285A1E2800B5ABE0 /* UIImage.swift */,
+				E5D81777285B2AD600EA885D /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				E5705D652858C80900D25366 /* Polygon.swift in Sources */,
 				E5ECE7F22859E55E00B5ABE0 /* UIFont.swift in Sources */,
 				E59ADC5D285923EB006C87EC /* StoreGroupScrollView.swift in Sources */,
+				E5D81778285B2AD600EA885D /* Date.swift in Sources */,
 				E5B6367F2857F21200CFD3E0 /* StoreGroupItem.swift in Sources */,
 				E5F35E1E2857D9FD00290E31 /* StoresViewController.swift in Sources */,
 			);
