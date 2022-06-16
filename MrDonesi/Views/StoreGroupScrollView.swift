@@ -48,7 +48,7 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.group(forName: name ?? "")?.stores.count ?? 10
+        return viewModel.group(forName: name ?? "")?.stores.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
