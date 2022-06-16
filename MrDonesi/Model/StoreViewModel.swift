@@ -19,11 +19,18 @@ protocol StoreViewModel {
     var subject: PassthroughSubject<StoreViewModelAction, Never> { get }
     func loadData() 
     func downloadImage(callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID?
+    func downloadImage(groupNum groupIndex: Int, itemNum itemIndex: Int, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID?
     func openHoursText() -> NSAttributedString
     func deliveryTimeText() -> NSAttributedString
     func ratingText() -> NSAttributedString
     func distanceText() -> NSAttributedString
     func discountText() -> NSAttributedString
+    func itemGroupCount(index: Int) -> Int?
+    func itemGroupName(index: Int) -> String?
+    func itemName(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String?
+    func itemDescription(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String?
+    func itemPrice(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String?
+    func clearData(id: UUID)
 }
 
 class MyStoreViewModel: ObservableObject, StoreViewModel {
@@ -99,5 +106,55 @@ class MyStoreViewModel: ObservableObject, StoreViewModel {
         let msg = !(store.discountMessage ?? "").isEmpty ? (store.discountMessage ?? "") : "No discount"
         text.append(NSAttributedString(string: msg, attributes: [.font: UIFont.customBold(ofSize: 14), .foregroundColor: UIColor.black]))
         return text
+    }
+    
+    func itemGroupCount(index: Int) -> Int? {
+        if let groups = store.groups, index < groups.count {
+            return groups[index].items.count
+        }
+        return nil
+    }
+    
+    func itemGroupName(index: Int) -> String? {
+        if let groups = store.groups, index < groups.count {
+            return groups[index].name
+        }
+        return nil
+    }
+    
+    func item(groupNum groupIndex: Int, itemNum itemIndex: Int) -> StoreGroupItem? {
+        if let groups = store.groups,
+            groupIndex < groups.count,
+            itemIndex < groups[groupIndex].items.count {
+            return groups[groupIndex].items[itemIndex]
+        }
+        return nil
+    }
+    
+    func itemName(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String? {
+        return item(groupNum: groupIndex, itemNum: itemIndex)?.name
+    }
+    
+    func itemDescription(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String? {
+        return item(groupNum: groupIndex, itemNum: itemIndex)?.description
+    }
+    
+    func itemPrice(groupNum groupIndex: Int, itemNum itemIndex: Int) -> String? {
+        if let p = item(groupNum: groupIndex, itemNum: itemIndex)?.displayPrice {
+            return "\(Int(p)) RSD"
+        }
+        return nil
+    }
+    
+    func downloadImage(groupNum groupIndex: Int, itemNum itemIndex: Int, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID? {
+        if let path = item(groupNum: groupIndex, itemNum: itemIndex)?.imageUrl,
+           let url = URL(string: path) {
+            return imageProvider.fetchImage(url: url, isIcon: true, callback: callback)
+        }
+        return nil
+    }
+    
+    func clearData(id: UUID) {
+        imageProvider.cancel(requestId: id)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class StoreViewController: UIViewController {
+class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private let imageView = UIImageView()
     private let toneView = GradientView()
     private let nameLabel = UILabel()
@@ -21,8 +21,11 @@ class StoreViewController: UIViewController {
     private let distanceLabel = ImageLabelView()
     private let discountLabel = ImageLabelView()
     private var mapView = MapStoreView()
+    private var menuView = UITableView()
     
     private var cancellable = Set<AnyCancellable>()
+    
+    private var menuItemCell = "menu_item_cell"
     
     var viewModel: StoreViewModel? {
         didSet {
@@ -94,12 +97,24 @@ class StoreViewController: UIViewController {
         scrollView.addSubview(discountLabel)
         
         scrollView.addSubview(mapView)
+        
+        menuView.delegate = self
+        menuView.dataSource = self
+        menuView.backgroundColor = .white
+        menuView.register(MenuItemCellView.self, forCellReuseIdentifier: menuItemCell)
+        menuView.isScrollEnabled = false
+        scrollView.addSubview(menuView)
 
         let backImg = UIImage(systemName: "chevron.left.circle.fill")
         self.navigationController?.navigationBar.backIndicatorImage = backImg
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
         self.navigationController?.navigationBar.backItem?.backButtonTitle = " "
         self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        refreshScrollSize()
     }
     
     func setupConstraints() {
@@ -156,6 +171,14 @@ class StoreViewController: UIViewController {
         let mvCh = mapView.heightAnchor.constraint(equalToConstant: 160)
         let mvCl = mapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor)
         NSLayoutConstraint.activate([mvCt, mvCw, mvCh, mvCl])
+        
+        menuView.translatesAutoresizingMaskIntoConstraints = false
+        let menuCt = menuView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 0)
+        let menuCw = menuView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        let menuCx = menuView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        let menuCh = menuView.heightAnchor.constraint(equalToConstant: 0)
+        menuCh.identifier = "menu_list_height"
+        NSLayoutConstraint.activate([menuCt, menuCw, menuCx, menuCh])
     }
     
     func prepare() {
@@ -195,13 +218,75 @@ class StoreViewController: UIViewController {
         case .dataLoaded:
             if let points = viewModel?.store.deliveryZone?.map({ $0.polygon.points }) {
                 mapView.set(polygons: points)
+                menuView.reloadData()
+                refreshScrollSize()
             }
         }
     }
     
-    @objc func onBack() {
-        self.dismiss(animated: true)
+    func refreshScrollSize() {
+        var maxY: CGFloat = 0
+        for v in scrollView.subviews {
+            if !(v is UITableView) {
+                maxY = max(maxY, v.frame.maxY)
+            }
+        }
+        var h: CGFloat = 0
+        if let groupCount = viewModel?.store.groups?.count {
+            for i in 0..<groupCount {
+                h += (50 + 20)
+                if let count = viewModel?.itemGroupCount(index: i) {
+                    h += (120.5 * CGFloat(count))
+                }
+            }
+        }
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: maxY + h)
+        
+        if let hC = menuView.constraints.first(where: { $0.identifier == "menu_list_height" }) {
+            hC.constant = h
+        }
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel?.store.groups?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.itemGroupCount(index: section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let view = tableView.dequeueReusableCell(withIdentifier: menuItemCell, for: indexPath)
+        if let itemView = view as? MenuItemCellView {
+            itemView.clear()
+            itemView.name = viewModel?.itemName(groupNum: indexPath.section, itemNum: indexPath.item)
+            itemView.itemDescription = viewModel?.itemDescription(groupNum: indexPath.section, itemNum: indexPath.item)
+            itemView.itemPrice = viewModel?.itemPrice(groupNum: indexPath.section, itemNum: indexPath.item)
+            itemView.groupNumber = indexPath.section
+            itemView.itemNumber = indexPath.item
+            itemView.viewModel = viewModel
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel?.itemGroupName(index: section) ?? ""
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = MenuGroupHeaderView()
+        view.title = viewModel?.itemGroupName(index: section) ?? ""
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
 }
 
 class GradientView: UIView {
