@@ -11,7 +11,7 @@ import Combine
 
 class StoresViewController: UIViewController {
     let headerView: StoresListHeaderView
-    let registeredSection: StoresSegmentView
+    let recommendedSection: StoresSegmentView
     let restrauntsSection: StoresSegmentView
     let closedSection: StoresSegmentView
     
@@ -21,7 +21,7 @@ class StoresViewController: UIViewController {
     
     init() {
         let vm = MyStoresViewModel(provider: WebStoresProvider())
-        registeredSection = StoresSegmentView(viewModel: vm)
+        recommendedSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
         headerView = StoresListHeaderView()
@@ -31,7 +31,7 @@ class StoresViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let vm = MyStoresViewModel(provider: WebStoresProvider())
-        registeredSection = StoresSegmentView(viewModel: vm)
+        recommendedSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
         headerView = StoresListHeaderView()
@@ -58,7 +58,7 @@ class StoresViewController: UIViewController {
     
     func setupViews() {
         self.view.addSubview(headerView)
-        self.view.addSubview(registeredSection)
+        self.view.addSubview(recommendedSection)
         self.view.addSubview(restrauntsSection)
         self.view.addSubview(closedSection)
     }
@@ -72,7 +72,7 @@ class StoresViewController: UIViewController {
         NSLayoutConstraint.activate([hCt, hCh, hCl, hCtr])
         
         var prevView: UIView? = headerView
-        for v in [registeredSection, restrauntsSection, closedSection] {
+        for v in [recommendedSection, restrauntsSection, closedSection] {
             v.translatesAutoresizingMaskIntoConstraints = false
             let tC = prevView == nil ? v.topAnchor.constraint(equalTo: self.view.topAnchor) : v.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
             let wC = v.widthAnchor.constraint(equalTo: self.view.widthAnchor)
@@ -96,8 +96,15 @@ class StoresViewController: UIViewController {
     }
     
     func refreshData() {
-        registeredSection.title = viewModel.groups[0].name
-        restrauntsSection.title = viewModel.groups[1].name
-        closedSection.title = viewModel.groups[2].name
+        // TODO: hide sections if data is not presented in set
+        if viewModel.groups.recommended != nil {
+            recommendedSection.title = viewModel.groups.recommended!.name
+        }
+        if viewModel.groups.restraunts != nil {
+            restrauntsSection.title = viewModel.groups.restraunts!.name
+        }
+        if viewModel.groups.closed != nil {
+            closedSection.title = viewModel.groups.closed!.name
+        }
     }
 }

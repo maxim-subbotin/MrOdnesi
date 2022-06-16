@@ -19,10 +19,10 @@ enum StoresViewModelAction {
 }
 
 protocol StoresViewModel {
-    var groups: [StoreSet] { get }
+    var groups: StoreSet { get }
     var subject: PassthroughSubject<StoresViewModelAction, Never> { get }
     func loadData()
-    func group(forName name: String) -> StoreSet?
+    func group(forName name: String) -> StoreGroup?
     func downloadImage(forGroupName name: String, index: Int, callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID?
     func storeName(group name: String, index: Int) -> String?
     func storeCategories(group name: String, index: Int) -> [String]?
@@ -38,7 +38,7 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         case incorrectStoreImage
     }
     // TODO: use dictionary: [String: [Store]]
-    private(set) var groups = [StoreSet]()
+    private(set) var groups = StoreSet()
     //weak var delegate: StoresViewControllerDelegate?
     var provider: StoresProvider
     var imageProvider = ImageProvider()
@@ -52,8 +52,8 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     func loadData() {
         self.provider.fetchStores(callback: { res in
             switch res {
-            case .success(let sets):
-                self.groups = sets
+            case .success(let groups):
+                self.groups = StoreSet(groups: groups)
                 self.subject.send(.refreshData)
             case .failure(let error):
                 print("Error: \(error)")
@@ -61,8 +61,8 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
         })
     }
     
-    func group(forName name: String) -> StoreSet? {
-        return groups.filter({ $0.name == name }).first
+    func group(forName name: String) -> StoreGroup? {
+        return groups.group(byName: name)
     }
     
     func storeName(group name: String, index: Int) -> String? {

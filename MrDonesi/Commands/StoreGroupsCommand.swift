@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class StoreGroupsCommand: Command<[StoreSet], ServerError> {
+public class StoreGroupsCommand: Command<[StoreGroup], ServerError> {
     public var latitude: Double {
         get {
             return 0

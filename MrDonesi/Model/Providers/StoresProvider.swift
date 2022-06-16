@@ -8,7 +8,7 @@
 import Foundation
 
 protocol StoresProvider {
-    func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ())
+    func fetchStores(callback: @escaping (Result<[StoreGroup], Error>) -> ())
     func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ())
 }
 
@@ -16,7 +16,7 @@ class WebStoresProvider: StoresProvider {
     var storesCommand: StoreGroupsCommand?
     var storeInfoCommand: StoreInfoCommand?
     
-    func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ()) {
+    func fetchStores(callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
         storesCommand = StoreGroupsCommand()
         storesCommand?.latitude = 44.8088835
         storesCommand?.longitude = 20.4634834
@@ -45,7 +45,7 @@ class WebStoresProvider: StoresProvider {
 }
 
 class LocalStoresProvider: StoresProvider {
-    func fetchStores(callback: @escaping (Result<[StoreSet], Error>) -> ()) {
+    func fetchStores(callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
         assertionFailure("Not implemented")
     }
     

@@ -44,6 +44,6 @@ public struct Store: Codable {
     var discountMessage: String?
     var coveringFreeDelivery: Bool
     var favorite: Bool
-    var groups: [StoreGroup]?
+    var groups: [StoreItemGroup]?
     var deliveryZone: [DeliveryZone]?
 }
