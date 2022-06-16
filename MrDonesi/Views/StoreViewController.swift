@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class StoreViewController: UIViewController {
     private let imageView = UIImageView()
@@ -20,6 +21,8 @@ class StoreViewController: UIViewController {
     private let distanceLabel = ImageLabelView()
     private let discountLabel = ImageLabelView()
     private var mapView = MapStoreView()
+    
+    private var cancellable = Set<AnyCancellable>()
     
     var viewModel: StoreViewModel? {
         didSet {
@@ -142,7 +145,7 @@ class StoreViewController: UIViewController {
         }
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        let mvCt = mapView.topAnchor.constraint(equalTo: discountLabel.bottomAnchor)
+        let mvCt = mapView.topAnchor.constraint(equalTo: discountLabel.bottomAnchor, constant: 10)
         let mvCw = mapView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         let mvCh = mapView.heightAnchor.constraint(equalToConstant: 160)
         let mvCl = mapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor)
@@ -151,6 +154,9 @@ class StoreViewController: UIViewController {
     
     func prepare() {
         viewModel?.loadData()
+        viewModel?.subject.sink(receiveValue: { action in
+            self.on(action: action)
+        }).store(in: &cancellable)
         _ = viewModel?.downloadImage(callback: { res in
             switch res {
             case .success(let img):
@@ -175,6 +181,15 @@ class StoreViewController: UIViewController {
         discountLabel.attributedTitle = viewModel?.discountText()
         if let lat = viewModel?.store.lat, let lng = viewModel?.store.lng {
             mapView.set(latitude: lat, longitude: lng)
+        }
+    }
+    
+    func on(action: StoreViewModelAction) {
+        switch action {
+        case .dataLoaded:
+            if let points = viewModel?.store.deliveryZone?.map({ $0.polygon.points }) {
+                mapView.set(polygons: points)
+            }
         }
     }
 }

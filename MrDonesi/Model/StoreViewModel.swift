@@ -7,10 +7,16 @@
 
 import Foundation
 import UIKit
+import Combine
+
+enum StoreViewModelAction {
+    case dataLoaded
+}
 
 protocol StoreViewModel {
     var store: Store { get }
     init(store: Store, provider: StoresProvider)
+    var subject: PassthroughSubject<StoreViewModelAction, Never> { get }
     func loadData() 
     func downloadImage(callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID?
     func openHoursText() -> NSAttributedString
@@ -25,6 +31,8 @@ class MyStoreViewModel: ObservableObject, StoreViewModel {
     private var imageProvider = ImageProvider()
     var provider: StoresProvider
     
+    var subject = PassthroughSubject<StoreViewModelAction, Never>()
+    
     required init(store: Store, provider: StoresProvider) {
         self.store = store
         self.provider = provider
@@ -35,6 +43,7 @@ class MyStoreViewModel: ObservableObject, StoreViewModel {
             switch res {
             case .success(let store):
                 self.store = store
+                self.subject.send(.dataLoaded)
             case .failure(let error):
                 // TODO: represent error info in UI
                 print("\(error)")

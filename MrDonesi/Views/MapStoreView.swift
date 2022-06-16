@@ -12,7 +12,7 @@ import UIKit
 class MapStoreView: UIView, MKMapViewDelegate {
     private var mapView = MKMapView()
     private var point: CLLocationCoordinate2D = .init(latitude: 0, longitude: 0)
-    
+    private var polygons = [[CLLocationCoordinate2D]]()
     private var storeIdentifier = "store_ann"
     
     override init(frame: CGRect) {
@@ -50,8 +50,33 @@ class MapStoreView: UIView, MKMapViewDelegate {
         mapView.addAnnotation(pin)
     }
     
+    func set(polygons array:[[CGPoint]]) {
+        polygons = array.map({ $0.map({ CLLocationCoordinate2D(latitude: $0.x, longitude: $0.y) }) })
+        //mapView.removeOverlays(mapView.overlays)
+        for p in polygons {
+            let polygon = MKPolygon(coordinates: p, count: p.count)
+            mapView.addOverlay(polygon)
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return mapView.dequeueReusableAnnotationView(withIdentifier: storeIdentifier)
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = .orange
+            polylineRenderer.lineWidth = 5
+            return polylineRenderer
+        } else if overlay is MKPolygon {
+            let polygonView = MKPolygonRenderer(overlay: overlay)
+            polygonView.fillColor = .orange
+            polygonView.strokeColor = .red
+            polygonView.alpha = 0.25
+            return polygonView
+        }
+        return MKPolylineRenderer(overlay: overlay)
     }
 }
 
