@@ -37,7 +37,6 @@ class StoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         setupConstraints()
     }
@@ -151,6 +150,7 @@ class StoreViewController: UIViewController {
     }
     
     func prepare() {
+        viewModel?.loadData()
         _ = viewModel?.downloadImage(callback: { res in
             switch res {
             case .success(let img):

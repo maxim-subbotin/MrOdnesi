@@ -10,7 +10,8 @@ import UIKit
 
 protocol StoreViewModel {
     var store: Store { get }
-    init(store: Store)
+    init(store: Store, provider: StoresProvider)
+    func loadData() 
     func downloadImage(callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID?
     func openHoursText() -> NSAttributedString
     func deliveryTimeText() -> NSAttributedString
@@ -22,9 +23,23 @@ protocol StoreViewModel {
 class MyStoreViewModel: ObservableObject, StoreViewModel {
     private(set) var store: Store
     private var imageProvider = ImageProvider()
+    var provider: StoresProvider
     
-    required init(store: Store) {
+    required init(store: Store, provider: StoresProvider) {
         self.store = store
+        self.provider = provider
+    }
+    
+    func loadData() {
+        provider.fetchStoreInfo(storeId: store.id, callback: { res in
+            switch res {
+            case .success(let store):
+                self.store = store
+            case .failure(let error):
+                // TODO: represent error info in UI
+                print("\(error)")
+            }
+        })
     }
     
     func downloadImage(callback: @escaping (Result<UIImage, Error>) -> ()) -> UUID? {
@@ -37,7 +52,12 @@ class MyStoreViewModel: ObservableObject, StoreViewModel {
     func openHoursText() -> NSAttributedString {
         let text = NSMutableAttributedString()
         text.append(NSAttributedString(string: "Open  ", attributes: [.font: UIFont.customMedium(ofSize: 14), .foregroundColor: UIColor.gray]))
-        text.append(NSAttributedString(string: "14:00", attributes: [.font: UIFont.customBold(ofSize: 14), .foregroundColor: UIColor.black]))
+        let hours = store.workingHours.hours(forDay: Date().weekDay)
+        var msg = "Closed"
+        if let start = hours?.first?.start, let end = hours?.last?.end {
+            msg = "\(start) - \(end)"
+        }
+        text.append(NSAttributedString(string: msg, attributes: [.font: UIFont.customBold(ofSize: 14), .foregroundColor: UIColor.black]))
         return text
     }
     
@@ -59,7 +79,8 @@ class MyStoreViewModel: ObservableObject, StoreViewModel {
     func distanceText() -> NSAttributedString {
         let text = NSMutableAttributedString()
         text.append(NSAttributedString(string: "Distance  ", attributes: [.font: UIFont.customMedium(ofSize: 14), .foregroundColor: UIColor.gray]))
-        text.append(NSAttributedString(string: "\(store.distance) m", attributes: [.font: UIFont.customBold(ofSize: 14), .foregroundColor: UIColor.black]))
+        let msg = store.distance != nil ? "\(store.distance!) m" : "-"
+        text.append(NSAttributedString(string: msg, attributes: [.font: UIFont.customBold(ofSize: 14), .foregroundColor: UIColor.black]))
         return text
     }
     
