@@ -31,6 +31,7 @@
 		E5B636812857F2AF00CFD3E0 /* StoreItemOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */; };
 		E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */; };
 		E5B636852857F54D00CFD3E0 /* StoreInfoCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */; };
+		E5D81776285B1D9C00EA885D /* MapStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D81775285B1D9C00EA885D /* MapStoreView.swift */; };
 		E5DDA16B285A88AC00931C08 /* ImagedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */; };
 		E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */; };
 		E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */; };
@@ -91,6 +92,7 @@
 		E5B636802857F2AF00CFD3E0 /* StoreItemOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemOption.swift; sourceTree = "<group>"; };
 		E5B636822857F3CB00CFD3E0 /* StoreInfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommand.swift; sourceTree = "<group>"; };
 		E5B636842857F54D00CFD3E0 /* StoreInfoCommandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCommandTest.swift; sourceTree = "<group>"; };
+		E5D81775285B1D9C00EA885D /* MapStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStoreView.swift; sourceTree = "<group>"; };
 		E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagedLabelView.swift; sourceTree = "<group>"; };
 		E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				E5ECE7F32859F01400B5ABE0 /* StoresListHeaderView.swift */,
 				E5ECE7FB285A2D5600B5ABE0 /* StoreViewController.swift */,
 				E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */,
+				E5D81775285B1D9C00EA885D /* MapStoreView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				E5705D6D2858D4EF00D25366 /* StoresSegmentView.swift in Sources */,
 				E5B636832857F3CB00CFD3E0 /* StoreInfoCommand.swift in Sources */,
 				E5705D682858C9F400D25366 /* CGPoint.swift in Sources */,
+				E5D81776285B1D9C00EA885D /* MapStoreView.swift in Sources */,
 				E5DDA16B285A88AC00931C08 /* ImagedLabelView.swift in Sources */,
 				E587F0422858880900656C48 /* ServerError.swift in Sources */,
 				E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */,

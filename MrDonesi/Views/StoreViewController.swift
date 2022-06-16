@@ -19,6 +19,7 @@ class StoreViewController: UIViewController {
     private let ratingLabel = ImageLabelView()
     private let distanceLabel = ImageLabelView()
     private let discountLabel = ImageLabelView()
+    private var mapView = MapStoreView()
     
     var viewModel: StoreViewModel? {
         didSet {
@@ -89,6 +90,8 @@ class StoreViewController: UIViewController {
         discountLabel.image = UIImage(systemName: "tag.fill")
         discountLabel.iconColor = .gray
         scrollView.addSubview(discountLabel)
+        
+        scrollView.addSubview(mapView)
     }
     
     func setupConstraints() {
@@ -138,6 +141,13 @@ class StoreViewController: UIViewController {
             NSLayoutConstraint.activate([vCt, vCw, vCh, vCl])
             prevView = view
         }
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        let mvCt = mapView.topAnchor.constraint(equalTo: discountLabel.bottomAnchor)
+        let mvCw = mapView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
+        let mvCh = mapView.heightAnchor.constraint(equalToConstant: 160)
+        let mvCl = mapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor)
+        NSLayoutConstraint.activate([mvCt, mvCw, mvCh, mvCl])
     }
     
     func prepare() {
@@ -163,6 +173,9 @@ class StoreViewController: UIViewController {
         ratingLabel.attributedTitle = viewModel?.ratingText()
         distanceLabel.attributedTitle = viewModel?.distanceText()
         discountLabel.attributedTitle = viewModel?.discountText()
+        if let lat = viewModel?.store.lat, let lng = viewModel?.store.lng {
+            mapView.set(latitude: lat, longitude: lng)
+        }
     }
 }
 
