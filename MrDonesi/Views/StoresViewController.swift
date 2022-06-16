@@ -10,7 +10,8 @@ import SwiftUI
 import Combine
 
 class StoresViewController: UIViewController {
-    let headerView: StoresListHeaderView
+    let headerView = StoresListHeaderView()
+    let scrollView = UIScrollView()
     let recommendedSection: StoresSegmentView
     let restrauntsSection: StoresSegmentView
     let closedSection: StoresSegmentView
@@ -24,7 +25,6 @@ class StoresViewController: UIViewController {
         recommendedSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
-        headerView = StoresListHeaderView()
         viewModel = vm
         super.init()
     }
@@ -34,7 +34,6 @@ class StoresViewController: UIViewController {
         recommendedSection = StoresSegmentView(viewModel: vm)
         restrauntsSection = StoresSegmentView(viewModel: vm)
         closedSection = StoresSegmentView(viewModel: vm)
-        headerView = StoresListHeaderView()
         viewModel = vm
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -56,11 +55,18 @@ class StoresViewController: UIViewController {
         setupConstraints()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize.height = 3 * 210
+    }
+    
     func setupViews() {
         self.view.addSubview(headerView)
-        self.view.addSubview(recommendedSection)
-        self.view.addSubview(restrauntsSection)
-        self.view.addSubview(closedSection)
+        
+        scrollView.addSubview(recommendedSection)
+        scrollView.addSubview(restrauntsSection)
+        scrollView.addSubview(closedSection)
+        self.view.addSubview(scrollView)
     }
     
     func setupConstraints() {
@@ -71,13 +77,20 @@ class StoresViewController: UIViewController {
         let hCtr = headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         NSLayoutConstraint.activate([hCt, hCh, hCl, hCtr])
         
-        var prevView: UIView? = headerView
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        let scCt = scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor)
+        let scCw = scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+        let scCx = scrollView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        let scCb = scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        NSLayoutConstraint.activate([scCt, scCw, scCx, scCb])
+        
+        var prevView: UIView? = nil
         for v in [recommendedSection, restrauntsSection, closedSection] {
             v.translatesAutoresizingMaskIntoConstraints = false
-            let tC = prevView == nil ? v.topAnchor.constraint(equalTo: self.view.topAnchor) : v.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
-            let wC = v.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+            let tC = prevView == nil ? v.topAnchor.constraint(equalTo: scrollView.topAnchor) : v.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
+            let wC = v.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
             let hC = v.heightAnchor.constraint(equalToConstant: 210)
-            let cyC = v.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            let cyC = v.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)
             NSLayoutConstraint.activate([tC, wC, hC, cyC])
             prevView = v
         }
