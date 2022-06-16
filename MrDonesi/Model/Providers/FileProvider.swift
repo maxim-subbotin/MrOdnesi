@@ -45,6 +45,7 @@ class FileProvider {
     private enum Folders: String {
         case cachedImages
         case cachedIcons
+        case requestCache
     }
     
     var cachedImagesFolder: URL? {
@@ -53,6 +54,10 @@ class FileProvider {
     
     var cachedIconsFolder: URL? {
         return checkAndCreate(folder: Folders.cachedIcons)
+    }
+    
+    var requestCacheFolder: URL? {
+        return checkAndCreate(folder: Folders.requestCache)
     }
     
     private var queue = OperationQueue()
@@ -92,6 +97,29 @@ class FileProvider {
         }
         if let folder = cachedImagesFolder {
             return find(url: url, inFolder: folder)
+        }
+        return nil
+    }
+    
+    func putRequestDataInCache(data: Data, forUrl url: URL) {
+        if let folder = requestCacheFolder,
+            var components = URLComponents(string: url.absoluteString) {
+            components.query = nil
+            let path = components.string ?? url.absoluteString
+            let fileName = "\(path.md5).data"
+            let fileUrl = folder.appendingPathComponent(fileName)
+            try? data.write(to: fileUrl)
+        }
+    }
+    
+    func getRequestDataFromCachec(forUrl url: URL) -> Data? {
+        if let folder = requestCacheFolder,
+            var components = URLComponents(string: url.absoluteString) {
+            components.query = nil
+            let path = components.string ?? url.absoluteString
+            let fileName = "\(path.md5).data"
+            let fileUrl = folder.appendingPathComponent(fileName)
+            return try? Data(contentsOf: fileUrl)
         }
         return nil
     }

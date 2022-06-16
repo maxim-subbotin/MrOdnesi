@@ -42,8 +42,10 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     private(set) var groups = StoreSet()
     //weak var delegate: StoresViewControllerDelegate?
     var provider: StoresProvider
+    var localProvider = LocalStoresProvider()
     var imageProvider = ImageProvider()
     var locationProvider = LocationProvider()
+    var networkProvider = NetworkProvider()
     
     let subject = PassthroughSubject<StoresViewModelAction, Never>()
     var coordinate: CGPoint?
@@ -51,27 +53,40 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     
+    private var networkIsAvailable = true
+    
     init(provider: StoresProvider) {
         self.provider = provider
         locationProvider
             .subject
             .sink(receiveValue: on(locationAction:))
             .store(in: &cancellables)
+        networkProvider
+            .subject
+            .sink(receiveValue: on(networkStatus:))
+            .store(in: &cancellables)
     }
     
     func loadData() {
         let lat = coordinate?.x ?? 0
         let lng = coordinate?.y ?? 0
-        self.provider.fetchStores(latitude: lat, longitude: lng, callback: { res in
-            switch res {
-            case .success(let groups):
-                self.groups = StoreSet(groups: groups)
-                self.subject.send(.refreshData)
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        })
+        
+        if networkIsAvailable {
+            self.provider.fetchStores(latitude: lat, longitude: lng, callback: applyFetchStoresResult(_:))
+        } else {
+            localProvider.fetchStores(latitude: lat, longitude: lng, callback: applyFetchStoresResult(_:))
+        }
         locationProvider.checkAuth()
+    }
+    
+    private func applyFetchStoresResult(_ result: Result<[StoreGroup], Error>) {
+        switch result {
+        case .success(let groups):
+            self.groups = StoreSet(groups: groups)
+            self.subject.send(.refreshData)
+        case .failure(let error):
+            print("Error: \(error)")
+        }
     }
     
     func group(forName name: String) -> StoreGroup? {
@@ -132,11 +147,16 @@ class MyStoresViewModel: ObservableObject, StoresViewModel {
     private func on(locationAction action: LocationProvider.Action) {
         switch action {
         case .locationUpdated(let loc):
-            self.coordinate = CGPoint(x: loc.lat, y: loc.lng)
+            //self.coordinate = CGPoint(x: loc.lat, y: loc.lng)
             self.currentAddress = loc.address
             subject.send(.updateAddress(loc.address))
             
-            loadData()
+            // TODO: for testing: ignore real coordinates, use places with the most massive data
+            //loadData()
         }
+    }
+    
+    private func on(networkStatus status: NetworkProvider.Status) {
+        networkIsAvailable = status == .on
     }
 }

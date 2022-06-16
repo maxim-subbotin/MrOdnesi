@@ -18,6 +18,14 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
     private var viewModel: StoresViewModel
     var name: String? {
         didSet {
+            /*self.performBatchUpdates({
+                let index = viewModel.group(forName: name ?? "")?.stores.count ?? 0
+                var paths = [IndexPath]()
+                for i in 0..<index {
+                    paths.append(IndexPath(item: i, section: 0))
+                }
+                self.reloadItems(at: paths)
+            }, completion: nil)*/
             self.reloadData()
         }
     }

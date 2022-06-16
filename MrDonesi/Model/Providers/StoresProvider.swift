@@ -46,8 +46,19 @@ class WebStoresProvider: StoresProvider {
 }
 
 class LocalStoresProvider: StoresProvider {
+    enum LocalStoreError: Error {
+        case noDataInCache
+    }
+    
+    let fileProvider = FileProvider()
+    
     func fetchStores(latitude: Double, longitude: Double, callback: @escaping (Result<[StoreGroup], Error>) -> ()) {
-        assertionFailure("Not implemented")
+        if let url = URL(string: "https://api.mrdonesi.com/api/public/store/explore-v2"),
+           let data = fileProvider.getRequestDataFromCachec(forUrl: url),
+           let groups = try? JSONDecoder().decode([StoreGroup].self, from: data) {
+            callback(.success(groups))
+        }
+        callback(.failure(LocalStoreError.noDataInCache))
     }
 
     func fetchStoreInfo(storeId: Int, callback: @escaping (Result<Store, Error>) -> ()) {

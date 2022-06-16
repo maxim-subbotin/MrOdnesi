@@ -24,6 +24,8 @@ class StoresViewController: UIViewController {
     private var restrauntsHeightConstraint = "restraunts_height"
     private var closedHeightConstraint = "closed_height"
     
+    private var isFirstAppearance = true
+    
     init() {
         let vm = MyStoresViewModel(provider: WebStoresProvider())
         recommendedSection = StoresSegmentView(viewModel: vm)
@@ -49,14 +51,21 @@ class StoresViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        
-        //viewModel.delegate = self
-        viewModel.loadData()
         viewModel.subject.sink(receiveValue: { action in
             self.on(action: action)
         }).store(in: &cancellable)
         setupViews()
         setupConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // TODO: reload data on view pull down
+        // load data on first view appearance only
+        if isFirstAppearance {
+            viewModel.loadData()
+            isFirstAppearance = false
+        }
     }
     
     override func viewDidLayoutSubviews() {

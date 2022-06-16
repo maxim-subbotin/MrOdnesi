@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E51A19B9285BB00E009C7A25 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A19B8285BB00E009C7A25 /* NetworkProvider.swift */; };
 		E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D602858C1CF00D25366 /* StoresProvider.swift */; };
 		E5705D632858C7D000D25366 /* DeliveryZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D622858C7D000D25366 /* DeliveryZone.swift */; };
 		E5705D652858C80900D25366 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D642858C80900D25366 /* Polygon.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E51A19B8285BB00E009C7A25 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		E5705D602858C1CF00D25366 /* StoresProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresProvider.swift; sourceTree = "<group>"; };
 		E5705D622858C7D000D25366 /* DeliveryZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryZone.swift; sourceTree = "<group>"; };
 		E5705D642858C80900D25366 /* Polygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */,
 				E5ECE7F72859F5CC00B5ABE0 /* FileProvider.swift */,
 				E5D8177D285B833300EA885D /* LocationProvider.swift */,
+				E51A19B8285BB00E009C7A25 /* NetworkProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */,
 				E5B6367C2857F1A900CFD3E0 /* StoreItemGroup.swift in Sources */,
 				E5B636762857E7C900CFD3E0 /* StoreGroupsCommand.swift in Sources */,
+				E51A19B9285BB00E009C7A25 /* NetworkProvider.swift in Sources */,
 				E5B636632857E0EA00CFD3E0 /* RestaurantGroupLayout.swift in Sources */,
 				E5ECE7FC285A2D5600B5ABE0 /* StoreViewController.swift in Sources */,
 				E5ECE7F42859F01400B5ABE0 /* StoresListHeaderView.swift in Sources */,

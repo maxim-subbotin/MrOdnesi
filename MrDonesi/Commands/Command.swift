@@ -73,6 +73,7 @@ public class Command<DataType: Codable, ErrorType: Codable> {
                 }
                 switch status {
                 case (200...299):
+                    FileProvider().putRequestDataInCache(data: data, forUrl: requestUrl)
                     return data
                 default:
                     if let error = try? JSONDecoder().decode(ErrorType.self, from: data) {
