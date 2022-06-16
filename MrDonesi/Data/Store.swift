@@ -33,13 +33,13 @@ public struct Store: Codable {
     var website: String?
     var workingHours: WorkingHoursWeek
     var available: Bool
-    var minimumOrder: Int
-    var distance: Int
-    var deliveryCost: Int
+    var minimumOrder: Int?
+    var distance: Int?
+    var deliveryCost: Int?
     var deliveryDiscount: Int? // ???
     var deliveryTime: String?
-    var priority: Int
-    var priorityType: String // TODO: make enum
+    var priority: Int?
+    var priorityType: String? // TODO: make enum
     var marketPlace: Bool
     var discountMessage: String?
     var coveringFreeDelivery: Bool
