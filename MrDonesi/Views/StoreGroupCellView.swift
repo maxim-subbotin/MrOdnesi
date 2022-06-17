@@ -125,9 +125,9 @@ class StoreGroupViewCell: UICollectionViewCell {
                 case .success(let img):
                     DispatchQueue.main.async {
                         self?.imageView.image = img
-                        //UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
+                        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
                             self?.imageView.alpha = 1.0
-                        //}
+                        }
                     }
                 case .failure(let error):
                     print("\(error)")
