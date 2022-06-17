@@ -31,4 +31,4 @@ App supports device location, but this feature has been disabled because my curr
 
 Video:
 
-![Demo video](https://raw.githubusercontent.com/maxim-subbotin/MrOdnesi/master/Demo/Demo.mp4)
+![Demo video](https://raw.githubusercontent.com/maxim-subbotin/MrOdnesi/master/Demo/demo.mp4)
