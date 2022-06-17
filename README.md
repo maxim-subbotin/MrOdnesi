@@ -1,7 +1,7 @@
 # MrOdnesi
 The simplest delivery app prototype.
 
-##TODO List
+## TODO List
 
 1. Data structures are not optimal, some string params could be turned into enums.
 2. Errors are catched, but there are no correct alerts in case of web request error or default error images in case of failed image downloading.
@@ -16,14 +16,16 @@ The simplest delivery app prototype.
 11. App has low unit-test coverage.
 12. Need to implement good lightweight helper for constraint applying, it could reduce code base by 50%.
 13. Web-request wrapper is the simplest, it has the function of data receiving only. It could be extended easily.
+14. List of items inside store detail view should be optimized. This view should react on scroll gestures, header must be decreased on scroll up, item categories bar should be shown on scroll to list etc.
+15. App should be optimized for small iphone screens (like iPhone SE) and ipads.
 
-##Notes
+## Notes
 
 App is built on MVVM-like pattern, model could be adapted rapidly for SwiftUI.
 
 App supports device location, but this feature has been disabled because my current location returns a few stores only and it's better to use coordinates of Belgrade's center for testing.
 
-##Screenshots
+## Screenshots
 
 <img src="https://raw.githubusercontent.com/maxim-subbotin/MrOdnesi/master/Demo/screen_home.jpg" width="400">
 <img src="https://raw.githubusercontent.com/maxim-subbotin/MrOdnesi/master/Demo/screen_details.jpg" width="400">
