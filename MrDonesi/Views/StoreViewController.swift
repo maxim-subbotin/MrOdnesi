@@ -26,6 +26,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     private var cancellable = Set<AnyCancellable>()
     
     private var menuItemCell = "menu_item_cell"
+    private var headerHeightConstraint = "header_height_constraint"
     
     var viewModel: StoreViewModel? {
         didSet {
@@ -97,7 +98,9 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         scrollView.addSubview(discountLabel)
         
         // TODO: decrease header area on scroll up and add other kinds of fashionable animations
+        scrollView.bounces = false
         scrollView.addSubview(mapView)
+        scrollView.delegate = self
         
         menuView.delegate = self
         menuView.dataSource = self
@@ -106,6 +109,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         menuView.isScrollEnabled = false
         scrollView.addSubview(menuView)
 
+        // TODO: "Back" button is invisible if store picture is white. Need to add shadows.
         let backImg = UIImage(systemName: "chevron.left.circle.fill")
         self.navigationController?.navigationBar.backIndicatorImage = backImg
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
@@ -127,6 +131,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let ivCt = imageView.topAnchor.constraint(equalTo: self.view.topAnchor)
         let ivCh = imageView.heightAnchor.constraint(equalToConstant: 250)
+        ivCh.identifier = headerHeightConstraint
         let ivCw = imageView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
         let ivCx = imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         NSLayoutConstraint.activate([ivCt, ivCh, ivCw, ivCx])
@@ -147,10 +152,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         toneView.translatesAutoresizingMaskIntoConstraints = false
         let tvCx = toneView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
-        let tvCt = toneView.topAnchor.constraint(equalTo: imageView.topAnchor)
+        let tvCh = toneView.heightAnchor.constraint(equalToConstant: 120)
         let tvCw = toneView.widthAnchor.constraint(equalTo: imageView.widthAnchor)
         let tvCb = toneView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
-        NSLayoutConstraint.activate([tvCx, tvCt, tvCw, tvCb])
+        NSLayoutConstraint.activate([tvCx, tvCh, tvCw, tvCb])
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         let svCt = scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor)
@@ -216,6 +221,9 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         discountLabel.attributedTitle = viewModel?.discountText()
         if let lat = viewModel?.store.lat, let lng = viewModel?.store.lng {
             mapView.set(latitude: lat, longitude: lng)
+        }
+        if let lat = viewModel?.currentLocation?.x, let lng = viewModel?.currentLocation?.y {
+            mapView.setMyPosition(latitude: lat, longitude: lng)
         }
     }
     
@@ -294,6 +302,18 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 120
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.scrollView === scrollView {
+            if let hc = imageView.constraints.first(where: { $0.identifier == headerHeightConstraint }),
+               scrollView.contentOffset.y < 100 {
+                hc.constant = 250 - scrollView.contentOffset.y
+                //UIView.animate(withDuration: 0.05) {
+                    self.imageView.layoutIfNeeded()
+                self.toneView.layoutIfNeeded()
+                //}
+            }
+        }
+    }
 }
 
 class GradientView: UIView {
@@ -309,6 +329,11 @@ class GradientView: UIView {
 
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
+        gradient.frame = self.bounds
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         gradient.frame = self.bounds
     }
 
