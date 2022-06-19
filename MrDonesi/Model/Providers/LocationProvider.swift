@@ -9,22 +9,27 @@ import Foundation
 import CoreLocation
 import Combine
 
-class LocationProvider: NSObject, ObservableObject, CLLocationManagerDelegate {
-    struct Location {
-        var lat: Double
-        var lng: Double
-        var address: String
-    }
-    enum Action {
-        case locationUpdated(_ loc: Location)
-    }
-    
+struct Location {
+    var lat: Double
+    var lng: Double
+    var address: String
+}
+enum LocationAction {
+    case locationUpdated(_ loc: Location)
+}
+
+protocol LocationProvider: AnyObject {
+    var subject: PassthroughSubject<LocationAction, Never> { get }
+    func checkAuth()
+}
+
+class GPSLocationProvider: NSObject, LocationProvider, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus = CLAuthorizationStatus.notDetermined
     @Published var location: CLLocation?
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
-    var subject = PassthroughSubject<Action, Never>()
+    var subject = PassthroughSubject<LocationAction, Never>()
     
     override init() {
         super.init()
@@ -39,14 +44,14 @@ class LocationProvider: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.requestLocation()
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    internal func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = CLLocationManager.authorizationStatus()
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
             getLocation()
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let loc = locations.last {
             CLGeocoder().reverseGeocodeLocation(loc, completionHandler: { placemarks, error in
                 if let placemark = placemarks?.first {
@@ -58,11 +63,28 @@ class LocationProvider: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    internal func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
     
     deinit {
         subject.send(completion: .finished)
+    }
+}
+
+class TestLocationProvider: NSObject, LocationProvider {
+    var subject = PassthroughSubject<LocationAction, Never>()
+    
+    func checkAuth() {
+        let lat = 44.8088835 + Double(Int.random(in: -200..<200)) / Double(10000)
+        let lng = 20.4634834 + Double(Int.random(in: -200..<200)) / Double(10000)
+        let loc = CLLocation(latitude: lat, longitude: lng)
+        CLGeocoder().reverseGeocodeLocation(loc, completionHandler: { placemarks, error in
+            if let placemark = placemarks?.first {
+                let address = placemark.address
+                let point = Location(lat: loc.coordinate.latitude, lng: loc.coordinate.longitude, address: address)
+                self.subject.send(.locationUpdated(point))
+            }
+        })
     }
 }
