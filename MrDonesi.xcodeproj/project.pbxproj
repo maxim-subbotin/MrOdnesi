@@ -15,6 +15,7 @@
 		E5705D6B2858CE6100D25366 /* CGPointExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D6A2858CE6100D25366 /* CGPointExtTest.swift */; };
 		E5705D6D2858D4EF00D25366 /* StoresSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5705D6C2858D4EF00D25366 /* StoresSegmentView.swift */; };
 		E587F0422858880900656C48 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587F0412858880900656C48 /* ServerError.swift */; };
+		E58DA33B285CC08C0008A633 /* ArrayMergerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DA33A285CC08C0008A633 /* ArrayMergerTest.swift */; };
 		E59ADC5B285915C4006C87EC /* StoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ADC5A285915C4006C87EC /* StoresViewModel.swift */; };
 		E59ADC5D285923EB006C87EC /* StoreGroupScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ADC5C285923EB006C87EC /* StoreGroupScrollView.swift */; };
 		E59ADC5F28593264006C87EC /* StoreGroupCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ADC5E28593264006C87EC /* StoreGroupCellView.swift */; };
@@ -39,6 +40,7 @@
 		E5D8177E285B833300EA885D /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8177D285B833300EA885D /* LocationProvider.swift */; };
 		E5D81780285B8BF500EA885D /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8177F285B8BF500EA885D /* CLPlacemark.swift */; };
 		E5DDA16B285A88AC00931C08 /* ImagedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */; };
+		E5E7EAB3285CF9F2005237B5 /* ArrayMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7EAB2285CF9F2005237B5 /* ArrayMerger.swift */; };
 		E5ECE7E02859BF9600B5ABE0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */; };
 		E5ECE7E22859D1EA00B5ABE0 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */; };
 		E5ECE7E42859DAE700B5ABE0 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE7E32859DAE700B5ABE0 /* TagsView.swift */; };
@@ -81,6 +83,7 @@
 		E5705D6A2858CE6100D25366 /* CGPointExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtTest.swift; sourceTree = "<group>"; };
 		E5705D6C2858D4EF00D25366 /* StoresSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresSegmentView.swift; sourceTree = "<group>"; };
 		E587F0412858880900656C48 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		E58DA33A285CC08C0008A633 /* ArrayMergerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMergerTest.swift; sourceTree = "<group>"; };
 		E59ADC5A285915C4006C87EC /* StoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewModel.swift; sourceTree = "<group>"; };
 		E59ADC5C285923EB006C87EC /* StoreGroupScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGroupScrollView.swift; sourceTree = "<group>"; };
 		E59ADC5E28593264006C87EC /* StoreGroupCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGroupCellView.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		E5D8177D285B833300EA885D /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		E5D8177F285B8BF500EA885D /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
 		E5DDA16A285A88AC00931C08 /* ImagedLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagedLabelView.swift; sourceTree = "<group>"; };
+		E5E7EAB2285CF9F2005237B5 /* ArrayMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMerger.swift; sourceTree = "<group>"; };
 		E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E5ECE7E12859D1EA00B5ABE0 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		E5ECE7E32859DAE700B5ABE0 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				E5705D6A2858CE6100D25366 /* CGPointExtTest.swift */,
+				E58DA33A285CC08C0008A633 /* ArrayMergerTest.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				E5ECE7DF2859BF9600B5ABE0 /* ImageLoader.swift */,
+				E5E7EAB2285CF9F2005237B5 /* ArrayMerger.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				E5705D6B2858CE6100D25366 /* CGPointExtTest.swift in Sources */,
 				E5B636782857E8CD00CFD3E0 /* StoreGroupsCommandTest.swift in Sources */,
 				E5B6366E2857E79800CFD3E0 /* MrDonesiTests.swift in Sources */,
+				E58DA33B285CC08C0008A633 /* ArrayMergerTest.swift in Sources */,
 				E5B636852857F54D00CFD3E0 /* StoreInfoCommandTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +482,7 @@
 				E5ECE7E42859DAE700B5ABE0 /* TagsView.swift in Sources */,
 				E5705D612858C1D000D25366 /* StoresProvider.swift in Sources */,
 				E5705D652858C80900D25366 /* Polygon.swift in Sources */,
+				E5E7EAB3285CF9F2005237B5 /* ArrayMerger.swift in Sources */,
 				E5ECE7F22859E55E00B5ABE0 /* UIFont.swift in Sources */,
 				E59ADC5D285923EB006C87EC /* StoreGroupScrollView.swift in Sources */,
 				E5D81778285B2AD600EA885D /* Date.swift in Sources */,

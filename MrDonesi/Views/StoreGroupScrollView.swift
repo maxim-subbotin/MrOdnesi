@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     typealias TapCallback = (Int) -> ()
@@ -26,10 +27,12 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
                 }
                 self.reloadItems(at: paths)
             }, completion: nil)*/
-            self.reloadData()
+            //self.reloadData()
         }
     }
     var tapCallback: TapCallback?
+    
+    private var cancellable = Set<AnyCancellable>()
 
     init(viewModel: StoresViewModel, name: String? = nil) {
         self.viewModel = viewModel
@@ -47,6 +50,8 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
         
         self.delegate = self
         self.dataSource = self
+        
+        viewModel.subject.sink(receiveValue: on(action:)).store(in: &cancellable)
     }
     
     required init?(coder: NSCoder) {
@@ -77,6 +82,30 @@ class StoreGroupScrollView: UICollectionView, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let name = name {
             viewModel.selectStore(index: indexPath.item, groupName: name)
+        }
+    }
+    
+    func on(action: StoresViewModelAction) {
+        if case let StoresViewModelAction.updateCollection(name, delete, insert, moves) = action {
+            if self.name == name {
+                self.performBatchUpdates({
+                    if delete.count > 0 {
+                        self.deleteItems(at: delete.map({ IndexPath(item: $0, section: 0) }))
+                    }
+                    if insert.count > 0 {
+                        self.insertItems(at: insert.map({ IndexPath(item: $0, section: 0) }))
+                    }
+                }, completion: {_ in 
+                    self.performBatchUpdates({
+                        moves.forEach({
+                            self.moveItem(at: IndexPath(item: $0.from, section: 0), to: IndexPath(item: $0.to, section: 0))
+                        })
+                    })
+                })
+            }
+        }
+        if case let StoresViewModelAction.completeReloading = action {
+            self.reloadData()
         }
     }
 }

@@ -13,8 +13,9 @@ enum StoreViewModelAction {
     case dataLoaded
 }
 
-protocol StoreViewModel: class {
+protocol StoreViewModel: AnyObject {
     var store: Store { get }
+    var currentLocation: CGPoint? { get set }
     init(store: Store, provider: StoresProvider)
     var subject: PassthroughSubject<StoreViewModelAction, Never> { get }
     func loadData() 
@@ -38,6 +39,7 @@ class MrDiStoreViewModel: ObservableObject, StoreViewModel {
     private(set) var store: Store
     private var imageProvider = ImageProvider()
     var provider: StoresProvider
+    var currentLocation: CGPoint?
     
     var subject = PassthroughSubject<StoreViewModelAction, Never>()
     

@@ -65,7 +65,8 @@ class StoresViewController: UIViewController {
         // TODO: reload data on view pull down
         // load data on first view appearance only
         if isFirstAppearance {
-            viewModel.loadData()
+            viewModel.startDataFetching()
+            //viewModel.loadData()
             isFirstAppearance = false
         }
     }
@@ -98,19 +99,35 @@ class StoresViewController: UIViewController {
         let scCx = scrollView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         let scCb = scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         NSLayoutConstraint.activate([scCt, scCw, scCx, scCb])
+    }
+    
+    func applySections() {
+        recommendedSection.removeFromSuperview()
+        restrauntsSection.removeFromSuperview()
+        closedSection.removeFromSuperview()
+        
+        var views = [UIView]()
+        if viewModel.groups.recommended != nil {
+            views.append(recommendedSection)
+        }
+        if viewModel.groups.restraunts != nil {
+            views.append(restrauntsSection)
+        }
+        if viewModel.groups.closed != nil {
+            views.append(closedSection)
+        }
         
         var prevView: UIView? = nil
-        for v in [(recommendedHeightConstraint, recommendedSection),
-                  (restrauntsHeightConstraint, restrauntsSection),
-                  (closedHeightConstraint, closedSection)] {
-            v.1.translatesAutoresizingMaskIntoConstraints = false
-            let tC = prevView == nil ? v.1.topAnchor.constraint(equalTo: scrollView.topAnchor) : v.1.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
-            let wC = v.1.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
-            let hC = v.1.heightAnchor.constraint(equalToConstant: 0)
-            hC.identifier = v.0
-            let cyC = v.1.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)
+        for v in views {
+            scrollView.addSubview(v)
+            v.translatesAutoresizingMaskIntoConstraints = false
+            let tC = prevView == nil ? v.topAnchor.constraint(equalTo: scrollView.topAnchor) : v.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
+            let wC = v.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
+            let hC = v.heightAnchor.constraint(equalToConstant: 210)
+            //hC.identifier = v.0
+            let cyC = v.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)
             NSLayoutConstraint.activate([tC, wC, hC, cyC])
-            prevView = v.1
+            prevView = v
         }
     }
     
@@ -120,38 +137,28 @@ class StoresViewController: UIViewController {
             refreshData()
         case .selectStore(let store):
             let storeVC = StoreViewController()
-            storeVC.viewModel = MrDiStoreViewModel(store: store, provider: viewModel.provider)
+            let storeViewModel = MrDiStoreViewModel(store: store, provider: viewModel.provider)
+            storeViewModel.currentLocation = viewModel.coordinate
+            storeVC.viewModel = storeViewModel
             self.navigationController?.pushViewController(storeVC, animated: true)
         case .updateAddress(let address):
             headerView.address = address
+        default:
+            print("\(action)")
         }
     }
     
     private func refreshData() {
         // TODO: make section hiding/showing more elegant
+        applySections()
         if viewModel.groups.recommended != nil {
             recommendedSection.title = viewModel.groups.recommended!.name
-            show(true, section: recommendedSection, constraintId: recommendedHeightConstraint)
-        } else {
-            show(false, section: recommendedSection, constraintId: recommendedHeightConstraint)
         }
         if viewModel.groups.restraunts != nil {
             restrauntsSection.title = viewModel.groups.restraunts!.name
-            show(true, section: restrauntsSection, constraintId: restrauntsHeightConstraint)
-        } else {
-            show(false, section: restrauntsSection, constraintId: restrauntsHeightConstraint)
         }
         if viewModel.groups.closed != nil {
             closedSection.title = viewModel.groups.closed!.name
-            show(true, section: closedSection, constraintId: closedHeightConstraint)
-        } else {
-            show(false, section: restrauntsSection, constraintId: restrauntsHeightConstraint)
-        }
-    }
-    
-    private func show(_ val: Bool, section: UIView, constraintId: String) {
-        if let hC = section.constraints.first(where: { $0.identifier == constraintId }) {
-            hC.constant = val ? 210 : 0
         }
     }
 }
