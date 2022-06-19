@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct Store: Codable {
-    var id: Int
+public struct Store: Identifiable, Codable {
+    public var id: Int
     var name: String
     var description: String
     var slug: String?

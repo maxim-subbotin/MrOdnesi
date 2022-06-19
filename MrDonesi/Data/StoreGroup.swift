@@ -46,4 +46,8 @@ struct StoreSet {
         }
         return nil
     }
+    
+    var isEmpty: Bool {
+        return recommended == nil && restraunts == nil && closed == nil
+    }
 }
