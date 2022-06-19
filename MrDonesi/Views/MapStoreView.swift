@@ -10,10 +10,18 @@ import MapKit
 import UIKit
 
 class MapStoreView: UIView, MKMapViewDelegate {
+    class StoreAnnotation: MKPointAnnotation {
+        
+    }
+    class MyPositionAnnotation: MKPointAnnotation {
+        
+    }
+    
     private var mapView = MKMapView()
     private var point: CLLocationCoordinate2D = .init(latitude: 0, longitude: 0)
     private var polygons = [[CLLocationCoordinate2D]]()
     private var storeIdentifier = "store_ann"
+    private var myPositionIdentifier = "my_pos_ann"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +36,7 @@ class MapStoreView: UIView, MKMapViewDelegate {
     private func setupViews() {
         mapView.delegate = self
         mapView.register(StoreAnnotaionView.self, forAnnotationViewWithReuseIdentifier: storeIdentifier)
+        mapView.register(MyPositionAnnotationView.self, forAnnotationViewWithReuseIdentifier: myPositionIdentifier)
         self.addSubview(mapView)
     }
     
@@ -51,8 +60,14 @@ class MapStoreView: UIView, MKMapViewDelegate {
         let region = MKCoordinateRegion(center: point, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
         
-        let pin = MKPointAnnotation()
+        let pin = StoreAnnotation()
         pin.coordinate = point
+        mapView.addAnnotation(pin)
+    }
+    
+    func setMyPosition(latitude: Double, longitude: Double) {
+        let pin = MyPositionAnnotation()
+        pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         mapView.addAnnotation(pin)
     }
     
@@ -66,7 +81,13 @@ class MapStoreView: UIView, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return mapView.dequeueReusableAnnotationView(withIdentifier: storeIdentifier)
+        if annotation is StoreAnnotation {
+            return mapView.dequeueReusableAnnotationView(withIdentifier: storeIdentifier)
+        } else if annotation is MyPositionAnnotation {
+            return mapView.dequeueReusableAnnotationView(withIdentifier: myPositionIdentifier)
+        } else {
+            return MKAnnotationView()
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -86,7 +107,7 @@ class MapStoreView: UIView, MKMapViewDelegate {
     }
 }
 
-fileprivate class StoreAnnotaionView: MKAnnotationView {
+fileprivate class PointAnnotaionView: MKAnnotationView {
     let iconView = UIImageView()
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
@@ -96,10 +117,18 @@ fileprivate class StoreAnnotaionView: MKAnnotationView {
     }
     
     func setupViews() {
-        let image = UIImage(systemName: "target")
+        let image = image()
         iconView.image = image
-        iconView.tintColor = UIColor(hex6: 0x06d6a0)
+        iconView.tintColor = tintColor()
         self.addSubview(iconView)
+    }
+    
+    func tintColor() -> UIColor {
+        fatalError("Tint color: not implemented")
+    }
+    
+    func image() -> UIImage? {
+        fatalError("Annotation image: not implemented")
     }
     
     func setupConstraints() {
@@ -113,5 +142,25 @@ fileprivate class StoreAnnotaionView: MKAnnotationView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+fileprivate class StoreAnnotaionView: PointAnnotaionView {
+    override func image() -> UIImage? {
+        return UIImage(systemName: "target")
+    }
+    
+    override func tintColor() -> UIColor {
+        return UIColor(hex6: 0x06d6a0)
+    }
+}
+
+fileprivate class MyPositionAnnotationView: PointAnnotaionView {
+    override func image() -> UIImage? {
+        return UIImage(systemName: "house.fill")
+    }
+    
+    override func tintColor() -> UIColor {
+        return UIColor(hex6: 0xf8961e)
     }
 }
