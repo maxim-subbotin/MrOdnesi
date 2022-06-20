@@ -61,26 +61,25 @@ class StoresSegmentView: UIView {
     }
     
     func setupConstraints() {
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        let hvCh = headerView.heightAnchor.constraint(equalToConstant: 50)
-        let hvCt = headerView.topAnchor.constraint(equalTo: self.topAnchor)
-        let hvCl = headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        let hvCtr = headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        NSLayoutConstraint.activate([hvCh, hvCt, hvCl, hvCtr])
+        headerView.curb()
+            .setHeight(50)
+            .setTop(to: self)
+            .setWidth(to: self)
+            .setCenterX(to: self)
+            .commit()
         
-        headerTitle.translatesAutoresizingMaskIntoConstraints = false
-        let htCh = headerTitle.heightAnchor.constraint(equalTo: headerView.heightAnchor)
-        let htCt = headerTitle.topAnchor.constraint(equalTo: headerView.topAnchor)
-        let htCl = headerTitle.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20)
-        let htCtr = headerTitle.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: 20)
-        NSLayoutConstraint.activate([htCh, htCt, htCl, htCtr])
+        headerTitle.curb()
+            .setHeight(to: headerView)
+            .setCenter(view: headerView)
+            .setWidth(to: headerView, constant: -40)
+            .commit()
         
-        groupScroll.translatesAutoresizingMaskIntoConstraints = false
-        let gsCt = groupScroll.topAnchor.constraint(equalTo: headerView.bottomAnchor)
-        let gsCb = groupScroll.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        let gsCl = groupScroll.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        let gsCtr = groupScroll.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        NSLayoutConstraint.activate([gsCt, gsCb, gsCl, gsCtr])
+        groupScroll.curb()
+            .setTop(toBottom: headerView)
+            .setBottom(to: self)
+            .setWidth(to: self)
+            .setCenterX(to: self)
+            .commit()
     }
     
     func onTapStore(index: Int) {

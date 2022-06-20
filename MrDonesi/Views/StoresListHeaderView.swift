@@ -46,18 +46,18 @@ class StoresListHeaderView: UIView {
     }
     
     func setupConstraints() {
-        locationLabel.translatesAutoresizingMaskIntoConstraints = false
-        let llCb = locationLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        let llCw = locationLabel.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -40)
-        let llCh = locationLabel.heightAnchor.constraint(equalToConstant: 30)
-        let llCx = locationLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        NSLayoutConstraint.activate([llCb, llCw, llCh, llCx])
+        locationLabel.curb()
+            .setBottom(to: self)
+            .setHeight(30)
+            .setWidth(to: self, constant: -40)
+            .setCenterX(to: self)
+            .commit()
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let tlCb = titleLabel.bottomAnchor.constraint(equalTo: locationLabel.topAnchor)
-        let tlCw = titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -40)
-        let tlCh = titleLabel.heightAnchor.constraint(equalToConstant: 40)
-        let tlCx = titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        NSLayoutConstraint.activate([tlCb, tlCw, tlCh, tlCx])
+        titleLabel.curb()
+            .setBottom(toTop: locationLabel)
+            .setHeight(40)
+            .setWidth(to: self, constant: -40)
+            .setCenterX(to: self)
+            .commit()
     }
 }

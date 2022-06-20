@@ -86,19 +86,19 @@ class StoresViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        let hCt = headerView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        let hCh = headerView.heightAnchor.constraint(equalToConstant: UIDevice.hasTopNotch ? 120 : 80)
-        let hCl = headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let hCtr = headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        NSLayoutConstraint.activate([hCt, hCh, hCl, hCtr])
+        headerView.curb()
+            .setTop(to: self.view)
+            .setHeight(UIDevice.hasTopNotch ? 120 : 80)
+            .setWidth(to: self.view)
+            .setCenterX(to: self.view)
+            .commit()
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        let scCt = scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor)
-        let scCw = scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
-        let scCx = scrollView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
-        let scCb = scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        NSLayoutConstraint.activate([scCt, scCw, scCx, scCb])
+        scrollView.curb()
+            .setTop(toBottom: headerView)
+            .setWidth(to: self.view)
+            .setBottom(to: self.view)
+            .setCenterX(to: self.view)
+            .commit()
     }
     
     func applySections() {
@@ -120,13 +120,21 @@ class StoresViewController: UIViewController {
         var prevView: UIView? = nil
         for v in views {
             scrollView.addSubview(v)
-            v.translatesAutoresizingMaskIntoConstraints = false
-            let tC = prevView == nil ? v.topAnchor.constraint(equalTo: scrollView.topAnchor) : v.topAnchor.constraint(equalTo: prevView!.bottomAnchor)
-            let wC = v.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
-            let hC = v.heightAnchor.constraint(equalToConstant: 210)
-            //hC.identifier = v.0
-            let cyC = v.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)
-            NSLayoutConstraint.activate([tC, wC, hC, cyC])
+            if prevView == nil {
+                v.curb()
+                    .setTop(to: scrollView)
+                    .setWidth(to: scrollView)
+                    .setHeight(210)
+                    .setCenterX(to: scrollView)
+                    .commit()
+            } else {
+                v.curb()
+                    .setTop(toBottom: prevView!)
+                    .setWidth(to: scrollView)
+                    .setHeight(210)
+                    .setCenterX(to: scrollView)
+                    .commit()
+            }
             prevView = v
         }
     }
